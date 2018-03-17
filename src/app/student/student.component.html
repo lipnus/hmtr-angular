@@ -1,0 +1,41 @@
+<div class="input">
+  <input class="group" placeholder="그룹이름" [(ngModel)]="group" (keyup)="getStudents(this.group)">
+</div>
+<div class="label">
+  <table class="students_table">
+    <tr class="row">
+      <td class="l1">name</td>
+      <td class="l2">birth</td>
+      <td class="l3">phone</td>
+      <td class="l4">email</td>
+      <td class="l5">date</td>
+      <td class="l6">count</td>
+      <td class="l_rd">raw_data</td>
+    </tr>
+  </table>
+</div>
+<div class="body" *ngIf="students">
+  <ul class="students">
+    <li *ngFor="let student of students">
+      <div class="container">
+        <table class="students_table">
+          <tr class="row">
+            <td class="t7">{{ student.group_name }}</td>
+            <td class="t1">{{ student.name }}</td>
+            <td class="t2">{{ student.birth }}</td>
+            <td class="t3">{{ student.phone }}</td>
+            <td class="t4">{{ student.email }}</td>
+            <td class="t5">{{ student.date }}</td>
+            <td class="t6">{{ student.count }}</td>
+            <!-- <a class="btn_re" routerLink="/report/{{student.birth}}{{student.date}}" (click)="EventEmitter()">보고서</a> -->
+            <!-- <a class="btn_re" routerLink="/report/{{student.userinfo_pk}}" target="_blank">보고서</a> -->
+            <!-- <button class="btn_rd">설문결과</button> -->
+            <a class="btn_rd" routerLink="/rawdata/{{student.userinfo_pk}}" target="_blank">설문결과</a>
+          </tr>
+        </table>
+      </div>
+    </li>
+  </ul>
+</div>
+
+<app-main></app-main>

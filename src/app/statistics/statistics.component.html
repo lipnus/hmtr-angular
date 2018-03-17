@@ -1,0 +1,57 @@
+<app-main></app-main>
+
+<div class="body">
+  <div class="head">
+    <h1>통계 기준 설정</h1>
+  </div>
+  <div class="basicinfo">
+    <button class="dropdown" (click)="switch_1()">
+      <span>1유형:basicinfo</span><div class="state" *ngIf="opened_1">∨</div><div class="state" *ngIf="1-opened_1">∧</div>
+    </button>
+    <div class="list" *ngIf="opened_1">
+      <div [ngClass]="{'classgrey':groups_state, 'classblack':1-groups_state}">
+        <p>안녕하세요</p>
+        <input [(ngModel)]="groupname" (keyup)="findGroups()">
+        <div *ngIf="grouplist_selected">
+          <ul class="groups_selected" *ngFor="let group of grouplist_selected">
+            {{group}}<button class="delete" (click)="deletegroup(group)">X</button>
+          </ul>
+        </div>        
+        <div *ngIf="grouplist_search">
+          <ul class="groups_search" *ngFor="let group of grouplist_search">
+            <button class="searchbox" (click)="selectgroup(group)">{{group}}</button>
+          </ul>
+        </div>
+        <table class="cover" (click)="groups_state=1-groups_state">　</table>
+      </div>
+      <div [ngClass]="{'classgrey':gender_state, 'classblack':1-gender_state}">
+        <input type="radio" [(ngModel)]="gender" name="gender" value="남자">남자
+        <input type="radio" [(ngModel)]="gender" name="gender" value="여자">여자
+        <table class="cover" (click)="gender_state = 1-gender_state">　</table>
+      </div>
+      <div [ngClass]="{'classgrey':grade_state[0], 'classblack':1-grade_state[0]}">
+        <button [ngClass]="{'btn_select':grade_state[1], 'btn_unselect':1-grade_state[1]}" (click)="grade_inde('중1'); grade_state[1]=1-grade_state[1]; ">중1</button>
+        <button [ngClass]="{'btn_select':grade_state[2], 'btn_unselect':1-grade_state[2]}" (click)="grade_inde('중2'); grade_state[2]=1-grade_state[2]; ">중2</button>
+        <button [ngClass]="{'btn_select':grade_state[3], 'btn_unselect':1-grade_state[3]}" (click)="grade_inde('중3'); grade_state[3]=1-grade_state[3]; ">중3</button>
+        <button [ngClass]="{'btn_select':grade_state[4], 'btn_unselect':1-grade_state[4]}" (click)="grade_inde('고1'); grade_state[4]=1-grade_state[4]; ">고1</button>
+        <button [ngClass]="{'btn_select':grade_state[5], 'btn_unselect':1-grade_state[5]}" (click)="grade_inde('고2'); grade_state[5]=1-grade_state[5]; ">고2</button>
+        <button [ngClass]="{'btn_select':grade_state[6], 'btn_unselect':1-grade_state[6]}" (click)="grade_inde('고3'); grade_state[6]=1-grade_state[6]; ">고3</button>
+        <button [ngClass]="{'btn_select':grade_state[7], 'btn_unselect':1-grade_state[7]}" (click)="grade_inde('N수'); grade_state[7]=1-grade_state[7]; ">N수</button>
+        <table class="cover" (click)="grade_state[0] = 1-grade_state[0]">　</table>
+      </div>
+      <div [ngClass]="{'classgrey':field_state[0], 'classblack':1-field_state[0]}">
+        <button [ngClass]="{'btn_select':field_state[1], 'btn_unselect':1-field_state[1]}" (click)="field_inde('인문'); field_state[1]=1-field_state[1]; ">인문</button>
+        <button [ngClass]="{'btn_select':field_state[2], 'btn_unselect':1-field_state[2]}" (click)="field_inde('사회과학'); field_state[2]=1-field_state[2]; ">사회과학</button>
+        <button [ngClass]="{'btn_select':field_state[3], 'btn_unselect':1-field_state[3]}" (click)="field_inde('자연과학'); field_state[3]=1-field_state[3]; ">자연과학</button>
+        <button [ngClass]="{'btn_select':field_state[4], 'btn_unselect':1-field_state[4]}" (click)="field_inde('간호/의학'); field_state[4]=1-field_state[4]; ">간호/의학</button>
+        <button [ngClass]="{'btn_select':field_state[5], 'btn_unselect':1-field_state[5]}" (click)="field_inde('경영'); field_state[5]=1-field_state[5]; ">경영</button>
+        <button [ngClass]="{'btn_select':field_state[6], 'btn_unselect':1-field_state[6]}" (click)="field_inde('예/체능'); field_state[6]=1-field_state[6]; ">예/체능</button>
+        <button [ngClass]="{'btn_select':field_state[7], 'btn_unselect':1-field_state[7]}" (click)="field_inde('법학'); field_state[7]=1-field_state[7]; ">법학</button>
+        <button [ngClass]="{'btn_select':field_state[8], 'btn_unselect':1-field_state[8]}" (click)="field_inde('교육'); field_state[5]=1-field_state[5]; ">교육</button>
+        <button [ngClass]="{'btn_select':field_state[9], 'btn_unselect':1-field_state[9]}" (click)="field_inde('공학'); field_state[6]=1-field_state[6]; ">공학</button>
+        <button [ngClass]="{'btn_select':field_state[10], 'btn_unselect':1-field_state[10]}" (click)="field_inde('미정'); field_state[7]=1-field_state[7]; ">미정</button>
+        <table class="cover" (click)="field_state[0] = 1-field_state[0]">　</table>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,24 @@
+.body {
+    color : white;
+}
+.classgrey {
+    background-color: #595959;
+}
+
+.classblack {
+    background-color: #d8d8d8;
+}
+
+.btn_select {
+    background-color: lightcoral;
+}
+
+.btn_unselect {
+    background-color: white;
+}
+
+.cover {
+    background-color: #333333;
+    width : 100%;
+    height : 100%;
+}

@@ -1,0 +1,177 @@
+.input {
+    position: fixed;
+    top: 10%;
+    left: 40%;
+    width: 20%;
+    height: 5%;
+}
+.group {
+    width: 100%;
+    height: 100%;
+}
+.label {
+    outline: 0.5cm;
+    outline-color: black;
+    border: 3px solid red;
+    width: 80%;
+    height: 5%;
+    position: fixed;
+    top: 20%;
+    left: 10%;
+    display: -webkit-inline-box;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+}
+.label .l1{
+    position: relative;
+    height: 100%;
+    width: 10%;
+    text-align: center;
+}
+.label .l2{
+    position: relative;
+    height: 100%;
+    width: 10%;
+    text-align: center;
+}
+.label .l3{
+    position: relative;
+    height: 100%;
+    width: 15%;
+    text-align: center;
+}
+.label .l4{
+    position: relative;
+    height: 100%;
+    width: 30%;
+    text-align: center;
+}
+.label .l5{
+    position: relative;
+    height: 100%;
+    width: 10%;
+    text-align: center;
+}
+.label .l6{
+    position: relative;
+    height: 100%;
+    width: 5%;
+    text-align: center;
+}
+.label .l_re{
+    position: relative;
+    height: 100%;
+    width: 10%;
+    text-align: center;
+}
+.label .l_rd{
+    position: relative;
+    height: 100%;
+    width: 10%;
+    text-align: center;
+}
+.body {
+    position: fixed;
+    top: 25%;
+    left: 10%;
+    width: 80%;   
+}
+.students {
+    list-style-type: none;
+    padding-left: 0px;
+    width: 100%;
+}
+.students .container {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    border: 3px solid lightgray;
+    background-color: lightgrey;
+    width: 100%;
+    height: 35px;
+}
+.students .container .students_table{
+    width: 100%;
+    height: 35px;
+}
+.students .container .students_table .row {
+    width: 100%;
+    height: 35px;
+}
+.students .container .students_table .t1{
+    position: relative;
+    height: 100%;
+    width: 10%;
+    text-align: center;
+    font-size: 80%;
+}
+.students .container .students_table .t2{
+    position: relative;
+    height: 100%;
+    width: 10%;
+    text-align: center;
+    font-size: 80%;
+}
+.students .container .students_table .t3{
+    position: relative;
+    height: 100%;
+    width: 15%;
+    text-align: center;
+    font-size: 80%;
+}
+.students .container .students_table .t4{
+    position: relative;
+    height: 100%;
+    width: 20%;
+    text-align: center;
+    font-size: 80%;
+}
+.students .container .students_table .t5{
+    position: relative;
+    height: 100%;
+    width: 10%;
+    text-align: center;
+    font-size: 80%;
+}
+.students .container .students_table .t6{
+    position: relative;
+    height: 100%;
+    width: 5%;
+    text-align: center;
+    font-size: 80%;
+}
+.students .container .students_table .t7{
+    position: relative;
+    height: 100%;
+    width: 10%;
+    text-align: center;
+    font-size: 80%;
+}
+.students .container .students_table .btn_re{  
+    display: inline-block;
+    height: 100%;
+    width: 70px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    text-align: center;
+    font: 80% none;
+}
+.students .container .students_table .btn_rd{
+    display: inline-block;
+    height: 100%;
+    width: 70px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    text-align: center;
+    font: 80% none;
+}
+.students 
+.li {
+    list-style-type: none;
+}
+

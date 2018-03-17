@@ -1,0 +1,212 @@
+<div class = 'body'>
+    <div class = 'basicinfo'>
+        <p class = 'head'>I. 기본인적사항</p>
+        <div class = 'behavior'>
+            <p class = 'subhead_title'>i. 기본정보</p>
+            <li class = 'for' *ngFor = "let rawdata of basicinfo1">
+                <span class = 'list'>{{rawdata.question}}</span>{{rawdata.answer}}
+            </li>
+        </div>
+        <div class = 'basicinfo2'>
+            <p class = 'subhead_title'>ii. 경험이력정보</p>
+            <li class = 'for' *ngFor = 'let rawdata of basicinfo2'>
+                <span class = 'list'>{{rawdata.question}}</span>{{rawdata.answer}}
+            </li>        
+        </div>
+        <div class = 'basicinfo3'>
+            <p class = 'subhead_title'>iii. 목표설정정보</p>
+            <li class = 'for' *ngFor = 'let rawdata of basicinfo3'>
+                <span class = 'list'>{{rawdata.question}}</span>{{rawdata.answer}}
+            </li>
+        </div>
+    </div>
+    <div class = 'behavior'>
+        <p class = 'head'>II. 학습행동유형</p>
+        <div class = 'behavior1'>
+            <p class = 'subhead_title'>i. 채움형</p>
+            <li class = 'for' *ngFor = 'let rawdata of behavior1'>
+                <span class = 'list'>{{rawdata.question}}</span>{{rawdata.answer}}
+            </li>
+        </div>
+        <div class = 'behavior2'>
+            <p class = 'subhead_title'>ii. 세움형</p>
+            <li class = 'for' *ngFor = 'let rawdata of behavior2'>
+                <span class = 'list'>{{rawdata.question}}</span>{{rawdata.answer}}
+            </li>        
+        </div>
+        <div class = 'behavior3'>
+            <p class = 'subhead_title'>iii. 키움형</p>
+            <li class = 'for' *ngFor = 'let rawdata of behavior3'>
+                <span class = 'list'>{{rawdata.question}}</span>{{rawdata.answer}}
+            </li>        
+        </div>
+        <div class = 'behavior4'>
+            <p class = 'subhead_title'>iv. 돋움형</p>
+            <li class = 'for' *ngFor = 'let rawdata of behavior4'>
+                <span class = 'list'>{{rawdata.question}}</span>{{rawdata.answer}}
+            </li>        
+        </div>
+    </div>
+    <div class = 'aptitude'>
+        <p class = 'head'>III. 학습적성유형</p>
+        <div class = 'uns'>
+            <p class = 'subhead_title'>이해도 및 만족도</p>
+            <li class = 'for' *ngFor = 'let rawdata of aptitude_uns'>
+                <span class = 'list'>{{rawdata.question}}</span>{{rawdata.answer}}
+            </li>
+        </div>
+        <div class = 'internet'>
+            <p class = 'subhead_title'>인터넷</p>
+            <li class = 'for' *ngFor = 'let rawdata of internet'>
+                <span class = 'list'>{{rawdata.question}}</span>{{rawdata.answer}}
+            </li>
+        </div>
+        <div class = 'pnc'>
+            <p class = 'subhead_title'>장점 및 단점</p>
+            <div class = 'A'>
+                <p class = 'type'>실천형</p>
+                <li class = 'for' *ngFor = 'let rawdata of aptitude_pnc_A'>
+                    <span class = 'list'>{{rawdata.question}}</span>{{rawdata.answer}}
+                </li>        
+            </div>
+            <div class = 'B'>
+                <p class = 'type'>주도형</p>
+                <li class = 'for' *ngFor = 'let rawdata of aptitude_pnc_B'>
+                    <span class = 'list'>{{rawdata.question}}</span>{{rawdata.answer}}
+                </li>        
+            </div>
+            <div class = 'C'>
+                <p class = 'type'>열정형</p>
+                <li class = 'for' *ngFor = 'let rawdata of aptitude_pnc_C'>
+                    <span class = 'list'>{{rawdata.question}}</span>{{rawdata.answer}}
+                </li>        
+            </div>
+            <div class = 'D'>
+                <p class = 'type'>계획형</p>
+                <li class = 'for' *ngFor = 'let rawdata of aptitude_pnc_D'>
+                    <span class = 'list'>{{rawdata.question}}</span>{{rawdata.answer}}
+                </li>        
+            </div>
+            <div class = 'E'>
+                <p class = 'type'>창의형</p>
+                <li class = 'for' *ngFor = 'let rawdata of aptitude_pnc_E'>
+                    <span class = 'list'>{{rawdata.question}}</span>{{rawdata.answer}}
+                </li>        
+            </div>
+            <div class = 'F'>
+                <p class = 'type'>관심형</p>
+                <li class = 'for' *ngFor = 'let rawdata of aptitude_pnc_F'>
+                    <span class = 'list'>{{rawdata.question}}</span>{{rawdata.answer}}
+                </li>        
+            </div>
+        </div>
+        <div class = 'stress'>
+            <p class = 'subhead_title'>스트레스 극복유형</p>
+            <div class = 'A'>
+                <p class = 'type'>언어</p>
+                <li class = 'for' *ngFor = 'let rawdata of aptitude_stress_A'>
+                    <span class = 'list'>{{rawdata.question}}</span>
+                </li>        
+            </div>
+            <div class = 'B'>
+                <p class = 'type'>논리수학</p>
+                <li class = 'for' *ngFor = 'let rawdata of aptitude_stress_B'>
+                    <span class = 'list'>{{rawdata.question}}</span>
+                </li>        
+            </div>
+            <div class = 'C'>
+                <p class = 'type'>시각공간</p>
+                <li class = 'for' *ngFor = 'let rawdata of aptitude_stress_C'>
+                    <span class = 'list'>{{rawdata.question}}</span>
+                </li>        
+            </div>
+            <div class = 'D'>
+                <p class = 'type'>신체운동</p>
+                <li class = 'for' *ngFor = 'let rawdata of aptitude_stress_D'>
+                    <span class = 'list'>{{rawdata.question}}</span>
+                </li>        
+            </div>
+            <div class = 'E'>
+                <p class = 'type'>음악</p>
+                <li class = 'for' *ngFor = 'let rawdata of aptitude_stress_E'>
+                    <span class = 'list'>{{rawdata.question}}</span>
+                </li>        
+            </div>
+            <div class = 'F'>
+                <p class = 'type'>자연</p>
+                <li class = 'for' *ngFor = 'let rawdata of aptitude_stress_F'>
+                    <span class = 'list'>{{rawdata.question}}</span>
+                </li>        
+            </div>
+            <div class = 'G'>
+                <p class = 'type'>자기이해</p>
+                <li class = 'for' *ngFor = 'let rawdata of aptitude_stress_G'>
+                    <span class = 'list'>{{rawdata.question}}</span>
+                </li>        
+            </div>
+            <div class = 'H'>
+                <p class = 'type'>대인관계</p>
+                <li class = 'for' *ngFor = 'let rawdata of aptitude_stress_H'>
+                    <span class = 'list'>{{rawdata.question}}</span>
+                </li>        
+            </div>
+        </div>
+        <div class = 'snd'>
+            <p class = 'subhead_title'>지지와요구</p>
+            <li class = 'for' *ngFor = 'let rawdata of aptitude_support1'>
+                <span class = 'list'>{{rawdata.question}}</span>{{rawdata.answer}}
+            </li>        
+            <p>지지대상</p>
+            <li class = 'for' *ngFor = 'let rawdata of aptitude_support2'>
+                <span class = 'list'>{{rawdata.question}}</span>
+            </li>        
+            
+            <li class = 'for' *ngFor = 'let rawdata of aptitude_demand1'>
+                <span class = 'list'>{{rawdata.question}}</span>{{rawdata.answer}}
+            </li>        
+            <p>요구대상</p>
+            <li class = 'for' *ngFor = 'let rawdata of aptitude_demand2'>
+                <span class = 'list'>{{rawdata.question}}</span>
+            </li>        
+        </div>
+        <div class = 'help1'>
+            <p class = 'subhead_title'>도움이 된 활동</p>
+            <li class = 'for' *ngFor = 'let rawdata of aptitude_help1'>
+                <span class = 'list'>{{rawdata.question}}</span>
+            </li>        
+        </div>
+        <div class = 'help2'>
+            <p class = 'subhead_title'>도움받고 싶은 활동</p>
+            <li class = 'for' *ngFor = 'let rawdata of aptitude_help2'>
+                <span class = 'list'>{{rawdata.question}}</span>
+            </li>        
+        </div>
+        <div class = 'needs'>
+            <p class = 'subhead_title'>수업유형 별 필요정도</p>
+            <li class = 'for' *ngFor = 'let rawdata of aptitude_needs'>
+                <span class = 'list'>{{rawdata.question}}</span>{{rawdata.answer}}
+            </li>        
+        </div>
+    </div>
+    <div class = 'balance'>
+        <p class = 'head'>IV.밸런스 자가진단</p>
+        <div class = 'learning'>
+            <p class = 'subhead_title'>학습유형</p>
+            <li class = 'for' *ngFor = 'let rawdata of balance_learning'>
+                <span class = 'list'>{{rawdata.question}}</span>{{rawdata.answer}}
+            </li>      
+        </div>
+        <div class = 'course'>
+            <p class = 'subhead_title'>진로유형</p>
+            <li class = 'for' *ngFor = 'let rawdata of balance_course'>
+                <span class = 'list'>{{rawdata.question}}</span>{{rawdata.answer}}
+            </li>              
+        </div>
+        <div class = 'entrance'>
+            <p class = 'subhead_title'>진학유형</p>
+            <li class = 'for' *ngFor = 'let rawdata of balance_entrance'>
+                <span class = 'list'>{{rawdata.question}}</span>{{rawdata.answer}}
+            </li>              
+        </div>
+    </div>
+</div>
