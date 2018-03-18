@@ -1,8 +1,8 @@
 import { Component, OnInit, EventEmitter, Output, Input } from '@angular/core';
 import { StudentService } from '../__service/student.service';
 import { ActivatedRoute } from '@angular/router';
-import { Student } from '../student';
 import { Router } from '@angular/router';
+import { Student } from '../student';
 
 @Component({
   selector: 'app-student',
