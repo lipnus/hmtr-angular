@@ -25,6 +25,8 @@ import { RawdataService } from './__service/rawdata.service';
 
 import { Student } from './student';
 import { Group } from './group';
+import { ServerAddress } from './Serveraddress';
+import { ResultComponent } from './result/result.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +38,8 @@ import { Group } from './group';
     AdministraterComponent,
     StatisticsComponent,
     AlertComponent,
-    RawdataComponent
+    RawdataComponent,
+    ResultComponent
   ],
   imports: [
     BrowserModule,

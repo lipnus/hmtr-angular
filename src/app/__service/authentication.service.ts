@@ -1,13 +1,15 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import 'rxjs/add/operator/map'
+import { ServerAddress } from '../Serveraddress';
 
 @Injectable()
 export class AuthenticationService {
     constructor(private http: HttpClient) { }
 
     login(id: string, password: string) {
-        return this.http.post<any>('localhost:9000/angular/authentication', { id: id, password: password })
+        var URL = ServerAddress + "angular/authentication";
+        return this.http.post<any>(URL, { id: id, password: password })
             .map(user => {
                 // login successful if there's a jwt token in the response
                 //if (user && user.token) {

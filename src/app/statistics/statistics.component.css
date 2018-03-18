@@ -1,12 +1,29 @@
 .body {
     color : white;
-}
-.classgrey {
     background-color: #595959;
+    width : 100%;
+    height : 100%;
+    text-align : center;
+}
+
+.part {
+    text-align: center;
+}
+
+.list {
+    text-align: center;
 }
 
 .classblack {
     background-color: #d8d8d8;
+    width : 90%;
+    margin : 20px auto;
+}
+
+.classgrey {
+    background-color: #595959;
+    width : 90%;
+    margin : 20px auto;
 }
 
 .btn_select {
@@ -21,4 +38,10 @@
     background-color: #333333;
     width : 100%;
     height : 100%;
+}
+
+.dropdown {
+    position : relative;
+    width : 80%;
+    margin : 20px auto;
 }

@@ -1,13 +1,15 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import 'rxjs/add/operator/map';
+import { ServerAddress } from '../Serveraddress';
 
 @Injectable()
 export class StatisticsService {
 
   constructor(private http : HttpClient) { }
+  URL = ServerAddress + "angular/statistics";
   getResult(standard:any){
-    return this.http.post<any>('http://localhost:9000/angulat/statistics', {
+    return this.http.post<any>(this.URL, {
       groups:standard.groups,
       gender:standard.gender,
       grade:standard.grade,
