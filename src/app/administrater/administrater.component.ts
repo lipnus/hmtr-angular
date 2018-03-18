@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { AdministratorService } from '../__service/administrator.service';
 
 @Component({
   selector: 'app-administrater',
@@ -8,19 +7,9 @@ import { AdministratorService } from '../__service/administrator.service';
 })
 export class AdministraterComponent implements OnInit {
 
-  constructor(private administratorService : AdministratorService) { }
+  constructor() { }
 
   ngOnInit() {
   }
-  name:string;
-  path:string;
-  msg:string;
-  upload(){
-    this.administratorService.upload(this.name, this.path)
-    .subscribe(
-      data => {
-        this.msg = data.msg;
-      }
-    )
-  }
+
 }

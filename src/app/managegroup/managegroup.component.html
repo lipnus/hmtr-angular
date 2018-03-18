@@ -1,43 +1,62 @@
-<div *ngIf="msg" class="alert_message">{{msg}}</div>
+<body>
+
+<div class="group-box">
+
 <div class='container_Make'>
-  <input class='input' [(ngModel)]="getGroupName" placeholder="그룹이름">
-  <button class='make' (click)="makeGroup()">생성</button>
+  <input class='input-serarch' [(ngModel)]="getGroupName" placeholder="New Group">
+  <button class='btn-search' (click)="makeGroup()">Create</button>
 </div>
-<div class="label">
+
+<!-- <div *ngIf="msg" class="alert_message">{{msg}}</div> -->
+
+<div class="title-label">
   <table>
     <tr class="row">
-      <td class="l1">number</td>
-      <td class="l2">name</td>
-      <td class="l3">groupcode</td>
-      <td class="l4">date</td>
-      <td class="l5">state</td>
-      <td class="l6">delete</td>
+      <td class="lll">number</td>
+      <td class="lll">name</td>
+      <td class="lll">groupcode</td>
+      <td class="lll">date</td>
+      <td class="lll">state</td>
+      <td class="lll">delete</td>
     </tr>
   </table>
 </div>
+
 <div *ngIf="groups" class="container_List">
-  <ul class="groups">
-    <li *ngFor="let group of groups">
-      <a type="button" class="containter_group">
-        <table class="group_description">
-          <tr class="row">
-            <td class="t1">{{ group.pk }}</td>
-            <td class="t2" routerLink="/student/{{group.name}}">{{ group.name }}</td>
-            <td class="t3">{{ group.group_code }}</td>
-            <td class="t4">{{ group.date }}</td>
-            <label class="switch">
-              <input *ngIf="group.state=='open'" type="checkbox" checked (click)="changeState(group.group_code, group.state)">
-              <input *ngIf="group.state=='close'" type="checkbox" (click)="changeState(group.group_code, group.state)">
-              <span class="slider round"></span>
-            </label>
-            <input type="button" value="삭제" (click)="deleteconfirm=showConfirm(); deleteGroup(group.group_code);">
-            <!-- <button (click)="delete_number=group.number; openModal('delete_confirm')">삭제</button> -->
-          </tr>
-        </table>
-      </a>
-    </li>    
-  </ul>
+    <div *ngFor="let group of groups">
+      <div class="group-line-box">
+        <a type="button" class="containter_group">
+
+          <table class="group_description">
+            <tr class="row">
+              <td class="ttt">{{ group.pk }}</td>
+              <td class="ttt" routerLink="/student/{{group.name}}">{{ group.name }}</td>
+              <td class="ttt">{{ group.group_code }}</td>
+              <td class="ttt">{{ group.date }}</td>
+              <td class="ttt">
+                <label class="switch">
+                  <input *ngIf="group.state=='open'" type="checkbox" checked (click)="changeState(group.group_code, group.state)">
+                  <input *ngIf="group.state=='close'" type="checkbox" (click)="changeState(group.group_code, group.state)">
+                  <span class="slider round"></span>
+                </label>
+              </td>
+
+              <td class="ttt">
+                <input type="button" class="del-btn" value="DEL" (click)="deleteconfirm=showConfirm(); deleteGroup(group.group_code);">
+              </td>
+            </tr>
+          </table>
+
+        </a>
+      </div>
+    </div>
 </div>
+
+</div>
+</body>
+<!-- group-box -->
+
+
 <!-- <modal id="delete_confirm">
   <div>정말로 삭제하시겠습니까?</div>
   <h1>비어있는 그룹이 아니면 오류가 발생할 수 있습니다.<h1>

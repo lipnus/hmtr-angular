@@ -22,7 +22,6 @@ import { StudentService } from './__service/student.service';
 import { GroupService } from './__service/group.service';
 import { StatisticsService } from './__service/statistics.service';
 import { RawdataService } from './__service/rawdata.service';
-import { AdministratorService } from './__service/administrator.service';
 
 import { Student } from './student';
 import { Group } from './group';
@@ -56,7 +55,6 @@ import { ResultComponent } from './result/result.component';
     GroupService,
     StatisticsService,
     RawdataService,
-    AdministratorService
   ],
   bootstrap: [AppComponent]
 })

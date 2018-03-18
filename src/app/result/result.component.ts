@@ -1,7 +1,4 @@
-import { Component, OnInit, EventEmitter, Output, Input } from '@angular/core';
-import { StatisticsService } from '../__service/statistics.service';
-import { ActivatedRoute } from '@angular/router';
-import { Router } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-result',
@@ -10,29 +7,9 @@ import { Router } from '@angular/router';
 })
 export class ResultComponent implements OnInit {
 
-  constructor(
-    private statisticsService:StatisticsService,
-    private route:ActivatedRoute,
-  ) { }
+  constructor() { }
+
   ngOnInit() {
-    this.getResult(this.route.snapshot.paramMap.get('standard'));
   }
-  result:{};
-  show=0;
-  getResult(standard:string){
-    this.statisticsService.getResult(standard)
-    .subscribe(
-      data => {
-        this.result = data;
-      }
-    )
-  }
-  set(value:number){
-    value = Math.round(value*100)/100;
-    return value;
-  }
-  set2(value:number){
-    value = Math.round(value*10)/10;
-    return value;
-  }
+
 }

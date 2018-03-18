@@ -3,15 +3,12 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import 'rxjs/add/operator/map';
 import { ServerAddress } from '../Serveraddress';
 
-  
 @Injectable()
 export class StatisticsService {
 
   constructor(private http : HttpClient) { }
   URL = ServerAddress + "angular/statistics";
-  getResult(temp_standard:string){
-    var standard = JSON.parse(temp_standard);
-    console.log(standard);
+  getResult(standard:any){
     return this.http.post<any>(this.URL, {
       groups:standard.groups,
       gender:standard.gender,
@@ -34,6 +31,6 @@ export class StatisticsService {
       process_grade:standard.process_grade,
       result_grade:standard.result_grade
     })
-    .map(data => {return data});
+    .map(data => {return data})
   }
 }

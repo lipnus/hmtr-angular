@@ -1,7 +1,7 @@
 
 /* Body */
 body {
-  background: #F5F5F5;
+  background: #5380F7;
   height: 100%;
   color: rgba(0, 0, 0, 0.87);
   font-family: "Roboto", sans-serif;
@@ -19,7 +19,7 @@ body {
   width: 8%;
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
-          
+
 }
 
 .btn {

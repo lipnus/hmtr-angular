@@ -1,0 +1,48 @@
+body {
+  margin: 6em;
+}
+
+
+.logintitle {
+  margin-bottom: 60px;
+  font-size: 50px;
+  /* font-weight: bold; */
+}
+
+label {
+  color: #909090;
+}
+
+.form-control {
+
+  margin-top: 3px;
+
+  display: block;
+  background:#fff;
+  width: 500px;
+  height: 15px;
+  border:none;
+  outline:none;
+  box-shadow:none;
+  font-size:1.8em;
+  font-weight:300;
+  padding:1.2em .7em;
+
+  margin-bottom: 20px;
+}
+
+.btn-primary{
+
+  background:#EBEBEB;
+  color:#909090;
+
+  font-size: 25px;
+  width:150px;
+  height: 70px;
+  text-align:center;
+  border: 0;
+  outline: 0;
+  cursor:pointer;
+
+  margin-left: 420px;
+}

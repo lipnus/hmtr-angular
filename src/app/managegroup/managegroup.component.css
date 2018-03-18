@@ -1,12 +1,89 @@
+
+/* 그룹설정 전체싸고잇는 div */
+.group-box{
+  width: 60vw;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  margin-top: 150px;
+}
+
+.container_Make{
+  margin-bottom: 100px;
+  width: auto;
+}
+
+.input-serarch{
+  font-family: 'Raleway';
+  color: #909090;
+  background:#fff;
+  width:300px;
+  outline: none;
+  border: none;
+  font-size:18px;
+  padding:10px 15px;
+}
+
+/* 인풋 플레이스홀더 */
+.input-serarch::-webkit-input-placeholder {
+  color: #dedede;
+  font-size: 18px;
+}
+
+.btn-search{
+  font-family: 'Raleway';
+  background:#565559;
+  color:white;
+  height:40px;
+  width:150px;
+  font-size: 20px;
+  outline: none;
+  border: none;
+  text-align:center;
+  cursor:pointer;
+}
+
+
+.title-label{
+  display: inline-block;
+  width: 800px;
+  margin-bottom: 5px;
+  font-size:18px;
+}
+
+
+.lll{
+  width: 130px;
+}
+
+
+.group-line-box{
+  display: inline-block;
+  width: 800px;
+  height: 56px;
+  background: #565559;
+  color: #ffffff;
+  margin-bottom: 4px;
+  padding: 15px, 0px, 15px, 0px;
+}
+
+.group_description{
+  margin-top: 5px;
+}
+
+.ttt{
+  width: 130px;
+}
+
 .switch {
     position: relative;
     display: inline-block;
     width: 60px;
     height: 34px;
   }
-  
+
   .switch input {display:none;}
-  
+
   .slider {
     position: absolute;
     cursor: pointer;
@@ -18,7 +95,7 @@
     -webkit-transition: .4s;
     transition: .4s;
   }
-  
+
   .slider:before {
     position: absolute;
     content: "";
@@ -30,26 +107,37 @@
     -webkit-transition: .4s;
     transition: .4s;
   }
-  
+
   input:checked + .slider {
-    background-color: #2196F3;
+    background-color: #3c3c3c;
   }
-  
+
   input:focus + .slider {
-    box-shadow: 0 0 1px #2196F3;
+    box-shadow: 0 0 1px #3c3c3c;
   }
-  
+
   input:checked + .slider:before {
     -webkit-transform: translateX(26px);
     -ms-transform: translateX(26px);
     transform: translateX(26px);
   }
-  
+
   /* Rounded sliders */
   .slider.round {
     border-radius: 34px;
   }
-  
+
   .slider.round:before {
     border-radius: 50%;
+  }
+
+  .del-btn{
+    border-radius: 3px;
+    height: 40px;
+    width: 60px;
+    outline: none;
+    border:none;
+    color: #ffffff;
+    background:#3c3c3c;
+    cursor: pointer;
   }
