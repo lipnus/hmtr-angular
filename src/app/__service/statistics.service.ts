@@ -8,7 +8,8 @@ export class StatisticsService {
 
   constructor(private http : HttpClient) { }
   URL = ServerAddress + "angular/statistics";
-  getResult(standard:any){
+  getResult(temp_standard:string){
+    var standard = JSON.parse(temp_standard);
     return this.http.post<any>(this.URL, {
       groups:standard.groups,
       gender:standard.gender,
