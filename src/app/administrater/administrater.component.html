@@ -1,6 +1,12 @@
-<span>NPC 이름</span><input [(ngModel)]="name">
-<span>이미지 파일 주소</span><input [(ngModel)]="path">
-<p *ngIf="msg">{{msg}}</p>
-<button type="submit" (click)="upload()">적용</button>
+
+<div class="npc-box">
+
+  <div class="npc-label">Name</div><input class="name" [(ngModel)]="name"><br><br>
+  <div class="npc-label">Img Path</div><input class="path" [(ngModel)]="path"><br><br>
+  <p *ngIf="msg">{{msg}}</p>
+  <button type="submit" (click)="upload()">CONFIRM</button>
+
+</div>
+
 
 <app-main></app-main>

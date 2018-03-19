@@ -1,0 +1,51 @@
+.npc-box{
+  position: relative;
+  width: 900px;
+  /* background: #909090; */
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20vw;
+
+}
+
+.npc-label{
+  display: inline-block;
+  width: 100px;
+}
+
+input{
+  display: inline-block;
+  font-family: 'Raleway';
+  color: #909090;
+  background:#fff;
+  outline: none;
+  border: none;
+  font-size:16px;
+  padding:10px 15px;
+  margin-left: 6px;
+}
+
+
+
+input.name{
+  width: 150px;
+}
+
+input.path{
+    width:500px;
+}
+
+button {
+  margin-left: 490px;
+  margin-top: 50px;
+  font-family: 'Raleway';
+  background:#565559;
+  color:white;
+  height:40px;
+  width:150px;
+  font-size: 20px;
+  outline: none;
+  border: none;
+  text-align:center;
+  cursor:pointer;
+}
