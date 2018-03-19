@@ -1,26 +1,122 @@
+body{
+    padding-bottom: 30px;
+}
+/* 학생목록 */
+.data-title {
+    margin-top: 60px;
+    width: 1200px;
+    height: 30px;
+    font-size:12px;
+    margin-bottom: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    display: flex;
+    padding-left: 1%;
+    padding-right: 1%;
+}
+.ll{
+  font-family: 'Raleway';
+  display: inline-block;
+  padding: 12px 0px;   
+  width: 4.7%;
+  text-align: center;
+}
+#ll-phone{
+    width: 6%;
+}
+.data-body {
+    width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    height: 50px;
+    background: #565559;
+    color: #ffffff;
+    padding: 15px, 0px, 15px, 0px;
+    margin-bottom:8px;
+    text-align: center;
+    display: flex;
+    padding-left: 1%;
+    padding-right: 1%;
+}
+.tt{
+    font-family: 'Raleway';
+    display: inline-block;
+    padding-top: 17px;
+    width: 4.7%;
+    font-size: 11px;
+    text-align: center;
+}
+#tt-phone{
+    width: 6%;
+}
+.btns{
+    text-align: center;
+}
+.btn{
+    display: inline-block;
+  font-family: 'Raleway';
+  background:#565559;
+  color:white;
+  height:40px;
+  width:150px;
+  font-size: 15px;
+  outline: none;
+  border: none;
+  text-align:center;
+  cursor:pointer;
+}
+
+.msg{
+    text-align: center;
+    font-size: 30px;
+}
+p{
+    display: inline-block;
+}
+
+/* 분석결과 */
+.all{
+    margin: 0px auto;
+    width:1200px;
+}
+.tb + tbody{
+    width:1200px;
+}
 li {
     list-style-type: none;
 }
 .result_table {
-    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    display: inline-block;
     border-collapse: collapse;
-    width: 80%;
+    width: 1200px;
     border-radius:25px;
+    margin-bottom:40px;
 }
 
 .result_table td, .result_table th {
     border: 1px solid #ddd;
     padding: 8px;
+    width: 150px;
+    text-align: center;
 }
 
-.result_table tr:nth-child(even){background-color: #f2f2f2;}
+.result_table tr:nth-child(even){
+    background-color: #f2f2f2;
+}
 
-.result_table tr:hover {background-color: #ddd;}
+.result_table tr:hover {
+    background-color: #ddd;
+}
 
 .result_table th {
     padding-top: 12px;
     padding-bottom: 12px;
-    text-align: left;
-    background-color: #5380F7;
+    text-align: center;
+    background-color: #565559;
     color: white;
+    font-size: 12px;
+}
+.result_table td {
+    font-size: 15px;
 }

@@ -42,10 +42,6 @@ export class StatisticsComponent implements OnInit {
   grouplist_search: string[] = [];
   grouplist_selected: string[] = [];
   findGroups() {
-    this.groupService.findGroups(this.groupname)
-      .subscribe(
-        data => { this.grouplist_search = data; }
-      )
     if (this.groupname != '') {
       this.groupService.findGroups(this.groupname)
         .subscribe(
@@ -229,23 +225,23 @@ export class StatisticsComponent implements OnInit {
     else standard.groups = [];
     if (this.gender_state) standard.gender = this.gender;
     else standard.gender = '';
-    if (this.grade_state) standard.grade = this.grade;
+    if (this.grade_state[0]) standard.grade = this.grade;
     else standard.grade = [];
-    if (this.field_state) standard.field = this.field;
+    if (this.field_state[0]) standard.field = this.field;
     else standard.field = [];
-    if (this.interesting_plan_state) standard.interesting_plan = this.interesting_plan;
+    if (this.interesting_plan_state[0]) standard.interesting_plan = this.interesting_plan;
     else standard.interesting_plan = [];
     if (this.attainment_state) standard.attainment = this.attainment;
     else standard.attainment = '';
-    if (this.goal_reason_state) standard.goal_reason = this.goal_reason;
+    if (this.goal_reason_state[0]) standard.goal_reason = this.goal_reason;
     else standard.goal_reason = [];
     if (this.best_score_cskd_state) standard.best_score_cskd = this.best_score_cskd;
     else standard.best_score_cskd = '';
     if (this.best_type_state) standard.best_type = this.best_type;
     else standard.best_type = '';
-    if (this.pnc_best_state) standard.pnc_best = this.pnc_best;
+    if (this.pnc_best_state[0]) standard.pnc_best = this.pnc_best;
     else standard.pnc_best = [];
-    if (this.stress_best_state) standard.stress_best = this.stress_best;
+    if (this.stress_best_state[0]) standard.stress_best = this.stress_best;
     else standard.stress_best = [];
     if (this.support_state) standard.support = this.support;
     else standard.support = '';
@@ -268,6 +264,7 @@ export class StatisticsComponent implements OnInit {
     if (this.result_grade_state) standard.result_grade = this.result_grade;
     else standard.result_grade = [];
     this.save_standard = JSON.stringify(standard);
+    console.log(this.save_standard);
   }
 
 }

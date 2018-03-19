@@ -16,6 +16,7 @@ export class ResultComponent implements OnInit {
        ngOnInit() {
         this.getResult(this.route.snapshot.paramMap.get('standard'));
       }
+      state_msg="Loading...";
       result:{};
       show=0;
       getResult(standard:string){
@@ -23,6 +24,7 @@ export class ResultComponent implements OnInit {
         .subscribe(
           data => {
             this.result = data;
+            this.state_msg = data.msg;
           }
         )
       }

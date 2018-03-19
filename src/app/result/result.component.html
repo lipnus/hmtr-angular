@@ -1,651 +1,649 @@
-<p>{{result.msg}}</p>
-<button (click)="show=0">학생목록</button>
-<button (click)="show=1">분석결과</button>
-<div *ngIf="1-show">
-  <table class="students">
-    <tr class="row">
-      <td class="index">이름</td>
-      <td class="index">생일</td>
-      <td class="index">번호</td>
-      <td class="index">회차</td>
-      <td class="index">행동유형</td>
-      <td class="index">채움</td>
-      <td class="index">세움</td>
-      <td class="index">키움</td>
-      <td class="index">돋움</td>
-      <td class="index">채움-세부</td>
-      <td class="index">세움-세부</td>
-      <td class="index">키움-세부</td>
-      <td class="index">돋움-세부</td>
-      <td class="index">장단점</td>
-     <td class="index">스트레스</td>
-      <td class="index">학습</td>
-      <td class="index">진로</td>
-      <td class="index">진학</td>
-      <td class="index">점검</td>
-      <td class="index">과정</td>
-      <td class="index">결과</td>
-    </tr>
-  </table>
-  <li *ngFor="let student of result.students">
-    <table class="students">
-      <tr class="row">
-        <td class="column">{{student.name}}</td>
-        <td class="column">{{student.birth}}</td>
-        <td class="column">{{student.phone}}</td>
-        <td class="column">{{student.count}}</td>
-        <td class="column">{{student.best_score_cskd}}</td>
-        <td class="column">{{student.cw_score}}</td>
-        <td class="column">{{student.sw_score}}</td>
-        <td class="column">{{student.kw_score}}</td>
-        <td class="column">{{student.dw_score}}</td>
-        <td class="column">{{student.cw_best_keyword}}</td>
-        <td class="column">{{student.sw_best_keyword}}</td>
-        <td class="column">{{student.kw_best_keyword}}</td>
-        <td class="column">{{student.dw_best_keyword}}</td>
-        <td class="column">{{student.best_score_pnc}}</td>
-        <td class="column">{{student.best_score_stress}}</td>
-        <td class="column">{{student.learning_score}}</td>
-        <td class="column">{{student.course_score}}</td>
-        <td class="column">{{student.entrance_score}}</td>
-        <td class="column">{{student.check_score}}</td>
-        <td class="column">{{student.process_score}}</td>
-        <td class="column">{{student.entrance_score}}</td>
-      </tr>
-    </table>
-  </li>
-</div>
-<div *ngIf="show">
-  <div class="t1">
-    <p>관심멘토링항목</p>
-    <table class="result_table">
-      <tr>
-        <th>학습</th>
-        <th>진로</th>
-        <th>진학</th>
-      </tr>
-      <tr>
-        <td>{{result.interesting_plan.learning_count}}</td>
-        <td>{{result.interesting_plan.course_count}}</td>
-        <td>{{result.interesting_plan.entrance_count}}</td>
-      </tr>
-    </table>
+<body>
+  <div class="msg"><p>{{state_msg}}</p></div>
+  <div class="btns">
+    <button class="btn" (click)="show=0">STUDENTS</button>
+    <button class="btn" (click)="show=1">ANALYSIS</button>
   </div>
-  <div class="t2">
-    <p>진로희망분야</p>
-    <table class="result_table">
-      <tr>
-        <th>인문</th>
-        <th>사회과학</th>
-        <th>자연과학</th>
-        <th>간호의학</th>
-        <th>경영</th>
-        <th>예/체능</th>
-        <th>법학</th>
-        <th>교육</th>
-        <th>공학</th>
-        <th>미정</th>
-      </tr>
-      <tr>
-        <td>{{result.field.a}}</td>
-        <td>{{result.field.b}}</td>
-        <td>{{result.field.c}}</td>
-        <td>{{result.field.d}}</td>
-        <td>{{result.field.e}}</td>
-        <td>{{result.field.f}}</td>
-        <td>{{result.field.g}}</td>
-        <td>{{result.field.h}}</td>
-        <td>{{result.field.i}}</td>
-        <td>{{result.field.j}}</td>
-      </tr>
-    </table>
+  <div *ngIf="1-show">
+    <div class="data-title">
+      <div class="ll">이름</div>
+      <div class="ll">생일</div>
+      <div class="ll" id="tt-phone">번호</div>
+      <div class="ll">회차</div>
+      <div class="ll">행동유형</div>
+      <div class="ll">채움</div>
+      <div class="ll">세움</div>
+      <div class="ll">키움</div>
+      <div class="ll">돋움</div>
+      <div class="ll">채움</div>
+      <div class="ll">세움</div>
+      <div class="ll">키움</div>
+      <div class="ll">돋움</div>
+      <div class="ll">장단점</div>
+      <div class="ll">스트레스</div>
+      <div class="ll">학습</div>
+      <div class="ll">진로</div>
+      <div class="ll">진학</div>
+      <div class="ll">점검</div>
+      <div class="ll">과정</div>
+      <div class="ll">결과</div>
+    </div>
+    <div class="data-body" *ngFor="let student of result.students">
+      <div class="tt">{{student.name}}</div>
+      <div class="tt">{{student.birth}}</div>
+      <div class="tt" id="tt-phone">{{student.phone}}</div>
+      <div class="tt">{{student.count}}</div>
+      <div class="tt">{{student.best_score_cskd}}</div>
+      <div class="tt">{{student.cw_score}}</div>
+      <div class="tt">{{student.sw_score}}</div>
+      <div class="tt">{{student.kw_score}}</div>
+      <div class="tt">{{student.dw_score}}</div>
+      <div class="tt">{{student.cw_best_keyword}}</div>
+      <div class="tt">{{student.sw_best_keyword}}</div>
+      <div class="tt">{{student.kw_best_keyword}}</div>
+      <div class="tt">{{student.dw_best_keyword}}</div>
+      <div class="tt">{{student.best_score_pnc}}</div>
+      <div class="tt">{{student.best_score_stress}}</div>
+      <div class="tt">{{student.learning_score}}</div>
+      <div class="tt">{{student.course_score}}</div>
+      <div class="tt">{{student.entrance_score}}</div>
+      <div class="tt">{{student.check_score}}</div>
+      <div class="tt">{{student.process_score}}</div>
+      <div class="tt">{{student.entrance_score}}</div>
+    </div>
   </div>
-  <div class="t3">
-    <p>희망직종</p>
-    <table class="result_table">
-      <tr>
-        <th>경영/사무</th>
-        <th>영업/고객상담</th>
-        <th>IT/인터넷</th>
-        <th>디자인</th>
-        <th>전기/기계</th>
-        <th>서비스</th>
-        <th>연구/개발/전문직</th>
-        <th>의료</th>
-        <th>생산/제조</th>
-        <th>건설/건축</th>
-        <th>유통/무역</th>
-        <th>미디어</th>
-        <th>교수/교사</th>
-        <th>특수계층/공공</th>
-        <th>미정</th>
-      </tr>
-      <tr>
-        <td>{{result.occupation.a}}</td>
-        <td>{{result.occupation.b}}</td>
-        <td>{{result.occupation.c}}</td>
-        <td>{{result.occupation.d}}</td>
-        <td>{{result.occupation.e}}</td>
-        <td>{{result.occupation.f}}</td>
-        <td>{{result.occupation.g}}</td>
-        <td>{{result.occupation.h}}</td>
-        <td>{{result.occupation.i}}</td>
-        <td>{{result.occupation.j}}</td>
-        <td>{{result.occupation.k}}</td>
-        <td>{{result.occupation.l}}</td>
-        <td>{{result.occupation.m}}</td>
-        <td>{{result.occupation.n}}</td>
-        <td>{{result.occupation.o}}</td>
-      </tr>
-    </table>
+  <div class="all" *ngIf="show">
+    <div class="tb">
+      <p>관심멘토링항목</p>
+      <table class="result_table">
+        <tr>
+          <th>학습</th>
+          <th>진로</th>
+          <th>진학</th>
+        </tr>
+        <tr>
+          <td>{{result.interesting_plan.learning_count}}</td>
+          <td>{{result.interesting_plan.course_count}}</td>
+          <td>{{result.interesting_plan.entrance_count}}</td>
+        </tr>
+      </table>
+    </div>
+    <div class="tb">
+      <p>진로희망분야</p>
+      <table class="result_table">
+        <tr>
+          <th>인문</th>
+          <th>사회과학</th>
+          <th>자연과학</th>
+          <th>간호의학</th>
+          <th>경영</th>
+          <th>예/체능</th>
+          <th>법학</th>
+          <th>교육</th>
+          <th>공학</th>
+          <th>미정</th>
+        </tr>
+        <tr>
+          <td>{{result.field.a}}</td>
+          <td>{{result.field.b}}</td>
+          <td>{{result.field.c}}</td>
+          <td>{{result.field.d}}</td>
+          <td>{{result.field.e}}</td>
+          <td>{{result.field.f}}</td>
+          <td>{{result.field.g}}</td>
+          <td>{{result.field.h}}</td>
+          <td>{{result.field.i}}</td>
+          <td>{{result.field.j}}</td>
+        </tr>
+      </table>
+    </div>
+    <div class="tb">
+      <p>희망직종</p>
+      <table class="result_table">
+        <tr>
+          <th>경영/사무</th>
+          <th>영업/고객상담</th>
+          <th>IT/인터넷</th>
+          <th>디자인</th>
+          <th>전기/기계</th>
+          <th>서비스</th>
+          <th>연구/개발/전문직</th>
+          <th>의료</th>
+          <th>생산/제조</th>
+          <th>건설/건축</th>
+          <th>유통/무역</th>
+          <th>미디어</th>
+          <th>교수/교사</th>
+          <th>특수계층/공공</th>
+          <th>미정</th>
+        </tr>
+        <tr>
+          <td>{{result.occupation.a}}</td>
+          <td>{{result.occupation.b}}</td>
+          <td>{{result.occupation.c}}</td>
+          <td>{{result.occupation.d}}</td>
+          <td>{{result.occupation.e}}</td>
+          <td>{{result.occupation.f}}</td>
+          <td>{{result.occupation.g}}</td>
+          <td>{{result.occupation.h}}</td>
+          <td>{{result.occupation.i}}</td>
+          <td>{{result.occupation.j}}</td>
+          <td>{{result.occupation.k}}</td>
+          <td>{{result.occupation.l}}</td>
+          <td>{{result.occupation.m}}</td>
+          <td>{{result.occupation.n}}</td>
+          <td>{{result.occupation.o}}</td>
+        </tr>
+      </table>
+    </div>
+    <div class="tb">
+      <p>목표달성방법</p>
+      <table class="result_table">
+        <tr>
+          <th>정보 및 개념습득</th>
+          <th>암기</th>
+          <th>문제풀이</th>
+          <th>실험/발명</th>
+          <th>토론/발표</th>
+          <th>예술/체육</th>
+        </tr>
+        <tr>
+          <td>{{result.goal_achieve_way.a}}</td>
+          <td>{{result.goal_achieve_way.b}}</td>
+          <td>{{result.goal_achieve_way.c}}</td>
+          <td>{{result.goal_achieve_way.d}}</td>
+          <td>{{result.goal_achieve_way.e}}</td>
+          <td>{{result.goal_achieve_way.f}}</td>
+        </tr>
+      </table>
+    </div>
+    <div class="tb">
+      <p>성취역량</p>
+      <table class="result_table">
+        <tr>
+          <th>성적향상</th>
+          <th>리더십</th>
+          <th>글로벌</th>
+          <th>창의적사고</th>
+          <th>의사소통</th>
+          <th>자기관리</th>
+          <th>지식정보처리</th>
+          <th>심미적감성</th>
+          <th>공동체</th>
+          <th>문제해결</th>
+        </tr>
+        <tr>
+          <td>{{result.field.a}}</td>
+          <td>{{result.field.b}}</td>
+          <td>{{result.field.c}}</td>
+          <td>{{result.field.d}}</td>
+          <td>{{result.field.e}}</td>
+          <td>{{result.field.f}}</td>
+          <td>{{result.field.g}}</td>
+          <td>{{result.field.h}}</td>
+          <td>{{result.field.i}}</td>
+          <td>{{result.field.j}}</td>
+        </tr>
+      </table>
+    </div>
+    <div class="tb">
+      <p>목표달성기간</p>
+      <table class="result_table">
+        <tr>
+          <th>단기</th>
+          <th>중기</th>
+          <th>장기</th>
+        </tr>
+        <tr>
+          <td>{{result.goal_completion_period.short}}</td>
+          <td>{{result.goal_completion_period.middle}}</td>
+          <td>{{result.goal_completion_period.long}}</td>
+        </tr>
+      </table>
+    </div>
+    <div class="tb">
+      <p>목표설정이유</p>
+      <table class="result_table">
+        <tr>
+          <th>관심</th>
+          <th>연습</th>
+          <th>목적</th>
+          <th>희망</th>
+        </tr>
+        <tr>
+          <td>{{result.goal_reason.attention}}</td>
+          <td>{{result.goal_reason.practice}}</td>
+          <td>{{result.goal_reason.purpose}}</td>
+          <td>{{result.goal_reason.wish}}</td>
+        </tr>
+      </table>
+    </div>
+    <div class="tb">
+      <p>학습행동유형</p>
+      <table class="result_table">
+        <tr>
+          <th>채움</th>
+          <th>세움</th>
+          <th>키움</th>
+          <th>돋움</th>
+        </tr>
+        <tr>
+          <td>{{result.best_score_cskd.cw}}</td>
+          <td>{{result.best_score_cskd.sw}}</td>
+          <td>{{result.best_score_cskd.kw}}</td>
+          <td>{{result.best_score_cskd.dw}}</td>
+        </tr>
+      </table>
+    </div>
+    <div class="tb">
+      <p>학습행동 세부유형 - 채움</p>
+      <table class="result_table">
+        <tr>
+          <th>책임</th>
+          <th>현실</th>
+          <th>대비</th>
+          <th>조언</th>
+          <th>체계</th>
+        </tr>
+        <tr>
+          <td>{{result.best_type.cw_A}}</td>
+          <td>{{result.best_type.cw_B}}</td>
+          <td>{{result.best_type.cw_C}}</td>
+          <td>{{result.best_type.cw_D}}</td>
+          <td>{{result.best_type.cw_E}}</td>
+        </tr>
+      </table>
+    </div>
+    <div class="tb">
+      <p>학습행동 세부유형 - 세움</p>
+      <table class="result_table">
+        <tr>
+          <th>감정</th>
+          <th>타인</th>
+          <th>목표</th>
+          <th>조화</th>
+          <th>주제</th>
+        </tr>
+        <tr>
+          <td>{{result.best_type.sw_A}}</td>
+          <td>{{result.best_type.sw_B}}</td>
+          <td>{{result.best_type.sw_C}}</td>
+          <td>{{result.best_type.sw_D}}</td>
+          <td>{{result.best_type.sw_E}}</td>
+        </tr>
+      </table>
+    </div>
+    <div class="tb">
+      <p>학습행동 세부유형 - 키움</p>
+      <table class="result_table">
+        <tr>
+          <th>변화</th>
+          <th>조작</th>
+          <th>주체</th>
+          <th>탐색</th>
+          <th>합리</th>
+        </tr>
+        <tr>
+          <td>{{result.best_type.kw_A}}</td>
+          <td>{{result.best_type.kw_B}}</td>
+          <td>{{result.best_type.kw_C}}</td>
+          <td>{{result.best_type.kw_D}}</td>
+          <td>{{result.best_type.kw_E}}</td>
+        </tr>
+      </table>
+    </div>
+    <div class="tb">
+      <p>학습행동 세부유형 - 돋움</p>
+      <table class="result_table">
+        <tr>
+          <th>창의</th>
+          <th>예술</th>
+          <th>자아</th>
+          <th>활동</th>
+          <th>분석</th>
+        </tr>
+        <tr>
+          <td>{{result.best_type.dw_A}}</td>
+          <td>{{result.best_type.dw_B}}</td>
+          <td>{{result.best_type.dw_C}}</td>
+          <td>{{result.best_type.dw_D}}</td>
+          <td>{{result.best_type.dw_E}}</td>
+        </tr>
+      </table>
+    </div>
+    <div class="tb">
+      <p>학습행동유형 평균점수</p>
+      <table class="result_table">
+        <tr>
+          <th>채움</th>
+          <th>세움</th>
+          <th>키움</th>
+          <th>돋움</th>
+        </tr>
+        <tr>
+          <td>{{set(result.average_score_cskd.cw)}}</td>
+          <td>{{set(result.average_score_cskd.sw)}}</td>
+          <td>{{set(result.average_score_cskd.kw)}}</td>
+          <td>{{set(result.average_score_cskd.dw)}}</td>
+        </tr>
+      </table>
+    </div>
+    <div class="tb">
+      <p>이해도/만족도 평균</p>
+      <table class="result_table">
+        <tr>
+          <th>성적/공부</th>
+          <th>전공/진로</th>
+          <th>자기이해</th>
+          <th>대인관계</th>
+          <th>밸런스</th>
+        </tr>
+        <tr>
+          <td>{{set(result.average_uns.grade)}}</td>
+          <td>{{set(result.average_uns.course)}}</td>
+          <td>{{set(result.average_uns.self_care)}}</td>
+          <td>{{set(result.average_uns.relationship)}}</td>
+          <td>{{set(result.average_uns.balance)}}</td>
+        </tr>
+      </table>
+    </div>
+    <div class="tb">
+      <p>장단점 평균</p>
+      <table class="result_table">
+        <tr>
+          <th>실천</th>
+          <th>주도</th>
+          <th>열정</th>
+          <th>계획</th>
+          <th>창의</th>
+          <th>관심</th>
+        </tr>
+        <tr>
+          <td>{{set2(result.average_pnc.a)}}</td>
+          <td>{{set2(result.average_pnc.b)}}</td>
+          <td>{{set2(result.average_pnc.c)}}</td>
+          <td>{{set2(result.average_pnc.d)}}</td>
+          <td>{{set2(result.average_pnc.e)}}</td>
+          <td>{{set2(result.average_pnc.f)}}</td>
+        </tr>
+      </table>
+    </div>
+    <div class="tb">
+      <p>스트레스 누계</p>
+      <table class="result_table">
+        <tr>
+          <th>언어</th>
+          <th>논리수학</th>
+          <th>시각공간</th>
+          <th>신체운동</th>
+          <th>음악</th>
+          <th>자연</th>
+          <th>자기이해</th>
+          <th>대인관계</th>
+        </tr>
+        <tr>
+          <td>{{result.count_stress.a}}</td>
+          <td>{{result.count_stress.b}}</td>
+          <td>{{result.count_stress.c}}</td>
+          <td>{{result.count_stress.d}}</td>
+          <td>{{result.count_stress.e}}</td>
+          <td>{{result.count_stress.f}}</td>
+          <td>{{result.count_stress.g}}</td>
+          <td>{{result.count_stress.h}}</td>
+        </tr>
+      </table>
+    </div>
+    <div class="tb">
+      <p>지지정도 누계</p>
+      <table class="result_table">
+        <tr>
+          <th>매우높음</th>
+          <th>높음</th>
+          <th>보통</th>
+          <th>낮음</th>
+          <th>매우낮음</th>
+        </tr>
+        <tr>
+          <td>{{result.count_support.a}}</td>
+          <td>{{result.count_support.b}}</td>
+          <td>{{result.count_support.c}}</td>
+          <td>{{result.count_support.d}}</td>
+          <td>{{result.count_support.e}}</td>
+        </tr>
+      </table>
+    </div>
+    <div class="tb">
+      <p>지지 대상</p>
+      <table class="result_table">
+        <tr>
+          <th>부모</th>
+          <th>형제</th>
+          <th>학교선생님</th>
+          <th>학원,과외선생님</th>
+          <th>선배</th>
+          <th>후배</th>
+          <th>친구</th>
+          <th>나 자신</th>
+        </tr>
+        <tr>
+          <td>{{result.count_support_object.a}}</td>
+          <td>{{result.count_support_object.b}}</td>
+          <td>{{result.count_support_object.c}}</td>
+          <td>{{result.count_support_object.d}}</td>
+          <td>{{result.count_support_object.e}}</td>
+          <td>{{result.count_support_object.f}}</td>
+          <td>{{result.count_support_object.g}}</td>
+          <td>{{result.count_support_object.h}}</td>
+        </tr>
+      </table>
+    </div>
+    <div class="tb">
+      <p>요구정도 누계</p>
+      <table class="result_table">
+        <tr>
+          <th>매우높음</th>
+          <th>높음</th>
+          <th>보통</th>
+          <th>낮음</th>
+          <th>매우낮음</th>
+        </tr>
+        <tr>
+          <td>{{result.count_demand.a}}</td>
+          <td>{{result.count_demand.b}}</td>
+          <td>{{result.count_demand.c}}</td>
+          <td>{{result.count_demand.d}}</td>
+          <td>{{result.count_demand.e}}</td>
+        </tr>
+      </table>
+    </div>
+    <div class="tb">
+      <p>요구 대상</p>
+      <table class="result_table">
+        <tr>
+          <th>부모</th>
+          <th>형제</th>
+          <th>학교선생님</th>
+          <th>학원,과외선생님</th>
+          <th>선배</th>
+          <th>후배</th>
+          <th>친구</th>
+          <th>나 자신</th>
+        </tr>
+        <tr>
+          <td>{{result.count_demand_object.a}}</td>
+          <td>{{result.count_demand_object.b}}</td>
+          <td>{{result.count_demand_object.c}}</td>
+          <td>{{result.count_demand_object.d}}</td>
+          <td>{{result.count_demand_object.e}}</td>
+          <td>{{result.count_demand_object.f}}</td>
+          <td>{{result.count_demand_object.g}}</td>
+          <td>{{result.count_demand_object.h}}</td>
+        </tr>
+      </table>
+    </div>
+    <div class="tb">
+      <p>추가 필요사항</p>
+      <table class="result_table">
+        <tr>
+          <th>지지</th>
+          <th>요구</th>
+          <th>현재에 만족</th>
+        </tr>
+        <tr>
+          <td>{{result.more_needs.support}}</td>
+          <td>{{result.more_needs.demand}}</td>
+          <td>{{result.more_needs.satisfied}}</td>
+        </tr>
+      </table>
+    </div>
+    <div class="tb">
+      <p>도움이 된 활동</p>
+      <table class="result_table">
+        <tr>
+          <th>교내외 동아리</th>
+          <th>교내외 멘토링</th>
+          <th>독서/연구활동</th>
+          <th>강연/행사/박람회</th>
+          <th>학원 및 온라인강의</th>
+          <th>종합 컨설팅</th>
+          <th>공모전 참가</th>
+          <th>자격증 취득</th>
+        </tr>
+        <tr>
+          <td>{{result.activity_helpful.a}}</td>
+          <td>{{result.activity_helpful.b}}</td>
+          <td>{{result.activity_helpful.c}}</td>
+          <td>{{result.activity_helpful.d}}</td>
+          <td>{{result.activity_helpful.e}}</td>
+          <td>{{result.activity_helpful.f}}</td>
+          <td>{{result.activity_helpful.g}}</td>
+          <td>{{result.activity_helpful.h}}</td>
+        </tr>
+      </table>
+    </div>
+    <div class="tb">
+      <p>도움받고싶은 활동</p>
+      <table class="result_table">
+        <tr>
+          <th>학습법/필기법</th>
+          <th>자기주도학습</th>
+          <th>독서활동</th>
+          <th>동아리활동</th>
+          <th>진로정보</th>
+          <th>진학정보</th>
+          <th>면접대비</th>
+          <th>논/구술대비</th>
+          <th>생기부/자소서</th>
+          <th>포트폴리오</th>
+          <th>전문가멘토링</th>
+          <th>종합컨설팅</th>
+        </tr>
+        <tr>
+          <td>{{result.activity_wish.a}}</td>
+          <td>{{result.activity_wish.b}}</td>
+          <td>{{result.activity_wish.c}}</td>
+          <td>{{result.activity_wish.d}}</td>
+          <td>{{result.activity_wish.e}}</td>
+          <td>{{result.activity_wish.f}}</td>
+          <td>{{result.activity_wish.g}}</td>
+          <td>{{result.activity_wish.h}}</td>
+          <td>{{result.activity_wish.i}}</td>
+          <td>{{result.activity_wish.j}}</td>
+          <td>{{result.activity_wish.k}}</td>
+          <td>{{result.activity_wish.l}}</td>
+        </tr>
+      </table>
+    </div>
+    <div class="tb">
+      <p>밸런스-학습진로진학</p>
+      <table class="result_table">
+        <tr>
+          <th>학습상황</th>
+          <th>진로상황</th>
+          <th>진학상황</th>
+          <th>총계</th>
+        </tr>
+        <tr>
+          <td>{{set(result.average_balance.learning)}}</td>
+          <td>{{set(result.average_balance.course)}}</td>
+          <td>{{set(result.average_balance.entrance)}}</td>
+          <td>{{set(result.average_balance.total)}}</td>
+        </tr>
+      </table>
+    </div>
+    <div class="tb">
+      <p>밸런스-점검과정결과</p>
+      <table class="result_table">
+        <tr>
+          <th>점검상황</th>
+          <th>과정상황</th>
+          <th>결과상황</th>
+          <th>총점</th>
+        </tr>
+        <tr>
+          <td>{{set(result.average_balance2.check)}}</td>
+          <td>{{set(result.average_balance2.process)}}</td>
+          <td>{{set(result.average_balance2.result)}}</td>
+          <td>{{set(result.average_balance2.total)}}</td>
+        </tr>
+      </table>
+    </div>
+    <div class="tb">
+      <p>문항별 점수</p>
+      <table class="result_table">
+        <tr>
+          <th></th>
+          <th>1번</th>
+          <th>2번</th>
+          <th>3번</th>
+          <th>4번</th>
+          <th>5번</th>
+          <th>6번</th>
+          <th>7번</th>
+          <th>8번</th>
+          <th>9번</th>
+          <th>10번</th>
+        </tr>
+        <tr>
+          <td class="type">학습</td>
+          <td>{{set(result.score_questions[1])}}</td>
+          <td>{{set(result.score_questions[2])}}</td>
+          <td>{{set(result.score_questions[3])}}</td>
+          <td>{{set(result.score_questions[4])}}</td>
+          <td>{{set(result.score_questions[5])}}</td>
+          <td>{{set(result.score_questions[6])}}</td>
+          <td>{{set(result.score_questions[7])}}</td>
+          <td>{{set(result.score_questions[8])}}</td>
+          <td>{{set(result.score_questions[9])}}</td>
+          <td>{{set(result.score_questions[10])}}</td>
+        </tr>
+        <tr>
+          <td class="type">진로</td>
+          <td>{{set(result.score_questions[11])}}</td>
+          <td>{{set(result.score_questions[12])}}</td>
+          <td>{{set(result.score_questions[13])}}</td>
+          <td>{{set(result.score_questions[14])}}</td>
+          <td>{{set(result.score_questions[15])}}</td>
+          <td>{{set(result.score_questions[16])}}</td>
+          <td>{{set(result.score_questions[17])}}</td>
+          <td>{{set(result.score_questions[18])}}</td>
+          <td>{{set(result.score_questions[19])}}</td>
+          <td>{{set(result.score_questions[20])}}</td>
+        </tr>
+        <tr>
+          <td class="type">진학</td>
+          <td>{{set(result.score_questions[21])}}</td>
+          <td>{{set(result.score_questions[22])}}</td>
+          <td>{{set(result.score_questions[23])}}</td>
+          <td>{{set(result.score_questions[24])}}</td>
+          <td>{{set(result.score_questions[25])}}</td>
+          <td>{{set(result.score_questions[26])}}</td>
+          <td>{{set(result.score_questions[27])}}</td>
+          <td>{{set(result.score_questions[28])}}</td>
+          <td>{{set(result.score_questions[29])}}</td>
+          <td>{{set(result.score_questions[30])}}</td>
+        </tr>
+      </table>
+    </div>
   </div>
-  <div class="t4">
-    <p>목표달성방법</p>
-    <table class="result_table">
-      <tr>
-        <th>정보 및 개념습득</th>
-        <th>암기</th>
-        <th>문제풀이</th>
-        <th>실험/발명</th>
-        <th>토론/발표</th>
-        <th>예술/체육</th>
-      </tr>
-      <tr>
-        <td>{{result.goal_achieve_way.a}}</td>
-        <td>{{result.goal_achieve_way.b}}</td>
-        <td>{{result.goal_achieve_way.c}}</td>
-        <td>{{result.goal_achieve_way.d}}</td>
-        <td>{{result.goal_achieve_way.e}}</td>
-        <td>{{result.goal_achieve_way.f}}</td>
-      </tr>
-    </table>
-  </div>
-  <div class="t5">
-    <p>성취역량</p>
-    <table class="result_table">
-      <tr>
-        <th>성적향상</th>
-        <th>리더십</th>
-        <th>글로벌</th>
-        <th>창의적사고</th>
-        <th>의사소통</th>
-        <th>자기관리</th>
-        <th>지식정보처리</th>
-        <th>심미적감성</th>
-        <th>공동체</th>
-        <th>문제해결</th>
-      </tr>
-      <tr>
-        <td>{{result.field.a}}</td>
-        <td>{{result.field.b}}</td>
-        <td>{{result.field.c}}</td>
-        <td>{{result.field.d}}</td>
-        <td>{{result.field.e}}</td>
-        <td>{{result.field.f}}</td>
-        <td>{{result.field.g}}</td>
-        <td>{{result.field.h}}</td>
-        <td>{{result.field.i}}</td>
-        <td>{{result.field.j}}</td>
-      </tr>
-    </table>
-  </div>
-  <div class="t6">
-    <p>목표달성기간</p>
-    <table class="result_table">
-      <tr>
-        <th>단기</th>
-        <th>중기</th>
-        <th>장기</th>
-      </tr>
-      <tr>
-        <td>{{result.goal_completion_period.short}}</td>
-        <td>{{result.goal_completion_period.middle}}</td>
-        <td>{{result.goal_completion_period.long}}</td>
-      </tr>
-    </table>
-  </div>
-  <div class="t7">
-    <p>목표설정이유</p>
-    <table class="result_table">
-      <tr>
-        <th>관심</th>
-        <th>연습</th>
-        <th>목적</th>
-        <th>희망</th>
-      </tr>
-      <tr>
-        <td>{{result.goal_reason.attention}}</td>
-        <td>{{result.goal_reason.practice}}</td>
-        <td>{{result.goal_reason.purpose}}</td>
-        <td>{{result.goal_reason.wish}}</td>
-      </tr>
-    </table>
-  </div>
-  <div class="t8">
-    <p>학습행동유형</p>
-    <table class="result_table">
-      <tr>
-        <th>채움</th>
-        <th>세움</th>
-        <th>키움</th>
-        <th>돋움</th>
-      </tr>
-      <tr>
-        <td>{{result.best_score_cskd.cw}}</td>
-        <td>{{result.best_score_cskd.sw}}</td>
-        <td>{{result.best_score_cskd.kw}}</td>
-        <td>{{result.best_score_cskd.dw}}</td>
-      </tr>
-    </table>
-  </div>
-  <div class="t9">
-    <p>학습행동 세부유형 - 채움</p>
-    <table class="result_table">
-      <tr>
-        <th>책임</th>
-        <th>현실</th>
-        <th>대비</th>
-        <th>조언</th>
-        <th>체계</th>
-      </tr>
-      <tr>
-        <td>{{result.best_type.cw_A}}</td>
-        <td>{{result.best_type.cw_B}}</td>
-        <td>{{result.best_type.cw_C}}</td>
-        <td>{{result.best_type.cw_D}}</td>
-        <td>{{result.best_type.cw_E}}</td>
-      </tr>
-    </table>
-  </div>
-  <div class="t10">
-    <p>학습행동 세부유형 - 세움</p>
-    <table class="result_table">
-      <tr>
-        <th>감정</th>
-        <th>타인</th>
-        <th>목표</th>
-        <th>조화</th>
-        <th>주제</th>
-      </tr>
-      <tr>
-        <td>{{result.best_type.sw_A}}</td>
-        <td>{{result.best_type.sw_B}}</td>
-        <td>{{result.best_type.sw_C}}</td>
-        <td>{{result.best_type.sw_D}}</td>
-        <td>{{result.best_type.sw_E}}</td>
-      </tr>
-    </table>
-  </div>
-  <div class="t11">
-    <p>학습행동 세부유형 - 키움</p>
-    <table class="result_table">
-      <tr>
-        <th>변화</th>
-        <th>조작</th>
-        <th>주체</th>
-        <th>탐색</th>
-        <th>합리</th>
-      </tr>
-      <tr>
-        <td>{{result.best_type.kw_A}}</td>
-        <td>{{result.best_type.kw_B}}</td>
-        <td>{{result.best_type.kw_C}}</td>
-        <td>{{result.best_type.kw_D}}</td>
-        <td>{{result.best_type.kw_E}}</td>
-      </tr>
-    </table>
-  </div>
-  <div class="t12">
-    <p>학습행동 세부유형 - 돋움</p>
-    <table class="result_table">
-      <tr>
-        <th>창의</th>
-        <th>예술</th>
-        <th>자아</th>
-        <th>활동</th>
-        <th>분석</th>
-      </tr>
-      <tr>
-        <td>{{result.best_type.dw_A}}</td>
-        <td>{{result.best_type.dw_B}}</td>
-        <td>{{result.best_type.dw_C}}</td>
-        <td>{{result.best_type.dw_D}}</td>
-        <td>{{result.best_type.dw_E}}</td>
-      </tr>
-    </table>
-  </div>
-  <div class="t13">
-    <p>학습행동유형 평균점수</p>
-    <table class="result_table">
-      <tr>
-        <th>채움</th>
-        <th>세움</th>
-        <th>키움</th>
-        <th>돋움</th>
-      </tr>
-      <tr>
-        <td>{{set(result.average_score_cskd.cw)}}</td>
-        <td>{{set(result.average_score_cskd.sw)}}</td>
-        <td>{{set(result.average_score_cskd.kw)}}</td>
-        <td>{{set(result.average_score_cskd.dw)}}</td>
-      </tr>
-    </table>
-  </div>
-  <div class="t14">
-    <p>이해도/만족도 평균</p>
-    <table class="result_table">
-      <tr>
-        <th>성적/공부</th>
-        <th>전공/진로</th>
-        <th>자기이해</th>
-        <th>대인관계</th>
-        <th>밸런스</th>
-      </tr>
-      <tr>
-        <td>{{set(result.average_uns.grade)}}</td>
-        <td>{{set(result.average_uns.course)}}</td>
-        <td>{{set(result.average_uns.self_care)}}</td>
-        <td>{{set(result.average_uns.relationship)}}</td>
-        <td>{{set(result.average_uns.balance)}}</td>
-      </tr>
-    </table>
-  </div>
-  <div class="t15">
-    <p>장단점 평균</p>
-    <table class="result_table">
-      <tr>
-        <th>실천</th>
-        <th>주도</th>
-        <th>열정</th>
-        <th>계획</th>
-        <th>창의</th>
-        <th>관심</th>
-      </tr>
-      <tr>
-        <td>{{set2(result.average_pnc.a)}}</td>
-        <td>{{set2(result.average_pnc.b)}}</td>
-        <td>{{set2(result.average_pnc.c)}}</td>
-        <td>{{set2(result.average_pnc.d)}}</td>
-        <td>{{set2(result.average_pnc.e)}}</td>
-        <td>{{set2(result.average_pnc.f)}}</td>
-      </tr>
-    </table>
-  </div>
-  <div class="t16">
-    <p>스트레스 누계</p>
-    <table class="result_table">
-      <tr>
-        <th>언어</th>
-        <th>논리수학</th>
-        <th>시각공간</th>
-        <th>신체운동</th>
-        <th>음악</th>
-        <th>자연</th>
-        <th>자기이해</th>
-        <th>대인관계</th>
-      </tr>
-      <tr>
-        <td>{{result.count_stress.a}}</td>
-        <td>{{result.count_stress.b}}</td>
-        <td>{{result.count_stress.c}}</td>
-        <td>{{result.count_stress.d}}</td>
-        <td>{{result.count_stress.e}}</td>
-        <td>{{result.count_stress.f}}</td>
-        <td>{{result.count_stress.g}}</td>
-        <td>{{result.count_stress.h}}</td>
-      </tr>
-    </table>
-  </div>
-  <div class="t17">
-    <p>지지정도 누계</p>
-    <table class="result_table">
-      <tr>
-        <th>매우높음</th>
-        <th>높음</th>
-        <th>보통</th>
-        <th>낮음</th>
-        <th>매우낮음</th>
-      </tr>
-      <tr>
-        <td>{{result.count_support.a}}</td>
-        <td>{{result.count_support.b}}</td>
-        <td>{{result.count_support.c}}</td>
-        <td>{{result.count_support.d}}</td>
-        <td>{{result.count_support.e}}</td>
-      </tr>
-    </table>
-  </div>
-  <div class="t18">
-    <p>지지 대상</p>
-    <table class="result_table">
-      <tr>
-        <th>부모</th>
-        <th>형제</th>
-        <th>학교선생님</th>
-        <th>학원,과외선생님</th>
-        <th>선배</th>
-        <th>후배</th>
-        <th>친구</th>
-        <th>나 자신</th>
-      </tr>
-      <tr>
-        <td>{{result.count_support_object.a}}</td>
-        <td>{{result.count_support_object.b}}</td>
-        <td>{{result.count_support_object.c}}</td>
-        <td>{{result.count_support_object.d}}</td>
-        <td>{{result.count_support_object.e}}</td>
-        <td>{{result.count_support_object.f}}</td>
-        <td>{{result.count_support_object.g}}</td>
-        <td>{{result.count_support_object.h}}</td>
-      </tr>
-    </table>
-  </div>
-  <div class="t19">
-    <p>요구정도 누계</p>
-    <table class="result_table">
-      <tr>
-        <th>매우높음</th>
-        <th>높음</th>
-        <th>보통</th>
-        <th>낮음</th>
-        <th>매우낮음</th>
-      </tr>
-      <tr>
-        <td>{{result.count_demand.a}}</td>
-        <td>{{result.count_demand.b}}</td>
-        <td>{{result.count_demand.c}}</td>
-        <td>{{result.count_demand.d}}</td>
-        <td>{{result.count_demand.e}}</td>
-      </tr>
-    </table>
-  </div>
-  <div class="t20">
-    <p>요구 대상</p>
-    <table class="result_table">
-      <tr>
-        <th>부모</th>
-        <th>형제</th>
-        <th>학교선생님</th>
-        <th>학원,과외선생님</th>
-        <th>선배</th>
-        <th>후배</th>
-        <th>친구</th>
-        <th>나 자신</th>
-      </tr>
-      <tr>
-        <td>{{result.count_demand_object.a}}</td>
-        <td>{{result.count_demand_object.b}}</td>
-        <td>{{result.count_demand_object.c}}</td>
-        <td>{{result.count_demand_object.d}}</td>
-        <td>{{result.count_demand_object.e}}</td>
-        <td>{{result.count_demand_object.f}}</td>
-        <td>{{result.count_demand_object.g}}</td>
-        <td>{{result.count_demand_object.h}}</td>
-      </tr>
-    </table>
-  </div>
-  <div class="t21">
-    <p>추가 필요사항</p>
-    <table class="result_table">
-      <tr>
-        <th>지지</th>
-        <th>요구</th>
-        <th>현재에 만족</th>
-      </tr>
-      <tr>
-        <td>{{result.more_needs.support}}</td>
-        <td>{{result.more_needs.demand}}</td>
-        <td>{{result.more_needs.satisfied}}</td>
-      </tr>
-    </table>
-  </div>
-  <div class="t22">
-    <p>도움이 된 활동</p>
-    <table class="result_table">
-      <tr>
-        <th>교내외 동아리</th>
-        <th>교내외 멘토링</th>
-        <th>독서/연구활동</th>
-        <th>강연/행사/박람회</th>
-        <th>학원 및 온라인강의</th>
-        <th>종합 컨설팅</th>
-        <th>공모전 참가</th>
-        <th>자격증 취득</th>
-      </tr>
-      <tr>
-        <td>{{result.activity_helpful.a}}</td>
-        <td>{{result.activity_helpful.b}}</td>
-        <td>{{result.activity_helpful.c}}</td>
-        <td>{{result.activity_helpful.d}}</td>
-        <td>{{result.activity_helpful.e}}</td>
-        <td>{{result.activity_helpful.f}}</td>
-        <td>{{result.activity_helpful.g}}</td>
-        <td>{{result.activity_helpful.h}}</td>
-      </tr>
-    </table>
-  </div>
-  <div class="t23">
-    <p>도움받고싶은 활동</p>
-    <table class="result_table">
-      <tr>
-        <th>학습법/필기법</th>
-        <th>자기주도학습</th>
-        <th>독서활동</th>
-        <th>동아리활동</th>
-        <th>진로정보</th>
-        <th>진학정보</th>
-        <th>면접대비</th>
-        <th>논/구술대비</th>
-        <th>생기부/자소서</th>
-        <th>포트폴리오</th>
-        <th>전문가멘토링</th>
-        <th>종합컨설팅</th>
-      </tr>
-      <tr>
-        <td>{{result.activity_wish.a}}</td>
-        <td>{{result.activity_wish.b}}</td>
-        <td>{{result.activity_wish.c}}</td>
-        <td>{{result.activity_wish.d}}</td>
-        <td>{{result.activity_wish.e}}</td>
-        <td>{{result.activity_wish.f}}</td>
-        <td>{{result.activity_wish.g}}</td>
-        <td>{{result.activity_wish.h}}</td>
-        <td>{{result.activity_wish.i}}</td>
-        <td>{{result.activity_wish.j}}</td>
-        <td>{{result.activity_wish.k}}</td>
-        <td>{{result.activity_wish.l}}</td>
-      </tr>
-    </table>
-  </div>
-  <div class="t24">
-    <p>밸런스-학습진로진학</p>
-    <table class="result_table">
-      <tr>
-        <th>학습상황</th>
-        <th>진로상황</th>
-        <th>진학상황</th>
-        <th>총계</th>
-      </tr>
-      <tr>
-        <td>{{set(result.average_balance.learning)}}</td>
-        <td>{{set(result.average_balance.course)}}</td>
-        <td>{{set(result.average_balance.entrance)}}</td>
-        <td>{{set(result.average_balance.total)}}</td>
-      </tr>
-    </table>
-  </div>
-  <div class="t25">
-    <p>밸런스-점검과정결과</p>
-    <table class="result_table">
-      <tr>
-        <th>점검상황</th>
-        <th>과정상황</th>
-        <th>결과상황</th>
-        <th>총점</th>
-      </tr>
-      <tr>
-        <td>{{set(result.average_balance2.check)}}</td>
-        <td>{{set(result.average_balance2.process)}}</td>
-        <td>{{set(result.average_balance2.result)}}</td>
-        <td>{{set(result.average_balance2.total)}}</td>
-      </tr>
-    </table>
-  </div>
-  <div class="t26">
-    <p>문항별 점수</p>
-    <table class="result_table">
-      <tr>
-        <th></th>
-        <th>1번</th>
-        <th>2번</th>
-        <th>3번</th>
-        <th>4번</th>
-        <th>5번</th>
-        <th>6번</th>
-        <th>7번</th>
-        <th>8번</th>
-        <th>9번</th>
-        <th>10번</th>
-      </tr>
-      <tr>
-        <td class="type">학습</td>
-        <td>{{set(result.score_questions[1])}}</td>
-        <td>{{set(result.score_questions[2])}}</td>
-        <td>{{set(result.score_questions[3])}}</td>
-        <td>{{set(result.score_questions[4])}}</td>
-        <td>{{set(result.score_questions[5])}}</td>
-        <td>{{set(result.score_questions[6])}}</td>
-        <td>{{set(result.score_questions[7])}}</td>
-        <td>{{set(result.score_questions[8])}}</td>
-        <td>{{set(result.score_questions[9])}}</td>
-        <td>{{set(result.score_questions[10])}}</td>
-      </tr>
-      <tr>
-        <td class="type">진로</td>
-        <td>{{set(result.score_questions[11])}}</td>
-        <td>{{set(result.score_questions[12])}}</td>
-        <td>{{set(result.score_questions[13])}}</td>
-        <td>{{set(result.score_questions[14])}}</td>
-        <td>{{set(result.score_questions[15])}}</td>
-        <td>{{set(result.score_questions[16])}}</td>
-        <td>{{set(result.score_questions[17])}}</td>
-        <td>{{set(result.score_questions[18])}}</td>
-        <td>{{set(result.score_questions[19])}}</td>
-        <td>{{set(result.score_questions[20])}}</td>
-      </tr>
-      <tr>
-        <td class="type">진학</td>
-        <td>{{set(result.score_questions[21])}}</td>
-        <td>{{set(result.score_questions[22])}}</td>
-        <td>{{set(result.score_questions[23])}}</td>
-        <td>{{set(result.score_questions[24])}}</td>
-        <td>{{set(result.score_questions[25])}}</td>
-        <td>{{set(result.score_questions[26])}}</td>
-        <td>{{set(result.score_questions[27])}}</td>
-        <td>{{set(result.score_questions[28])}}</td>
-        <td>{{set(result.score_questions[29])}}</td>
-        <td>{{set(result.score_questions[30])}}</td>
-      </tr>
-    </table>
-  </div>
-</div>
+</body>
