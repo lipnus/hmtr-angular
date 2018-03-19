@@ -57,7 +57,7 @@ export class StatisticsComponent implements OnInit {
     }
   }
   selectgroup(groupname: string) {
-    for (var i = 0; i < this.grouplist_selected.length; i) {
+    for (var i = 0; i < this.grouplist_selected.length; i++) {
       if (this.grouplist_selected[i] == groupname) {
         break;
       }
@@ -65,7 +65,7 @@ export class StatisticsComponent implements OnInit {
     if (i == this.grouplist_selected.length) this.grouplist_selected.push(groupname);
   }
   deletegroup(groupname: string) {
-    for (let i = 0; i < this.grouplist_selected.length; i) {
+    for (let i = 0; i < this.grouplist_selected.length; i++) {
       if (this.grouplist_selected[i] == groupname) {
         this.grouplist_selected.splice(i, 1);
         i--;
@@ -78,7 +78,7 @@ export class StatisticsComponent implements OnInit {
   grade: string[] = [];
   grade_inde(value: string) {
     var i;
-    for (i = 0; i < this.grade.length; i) {
+    for (i = 0; i < this.grade.length; i++) {
       if (this.grade[i] == value) {
         this.grade.splice(i, 1);
         i--;
@@ -91,7 +91,7 @@ export class StatisticsComponent implements OnInit {
   field: string[] = [];
   field_inde(value: string) {
     var i;
-    for (i = 0; i < this.field.length; i) {
+    for (i = 0; i < this.field.length; i++) {
       if (this.field[i] == value) {
         this.field.splice(i, 1);
         i--;
@@ -104,7 +104,7 @@ export class StatisticsComponent implements OnInit {
   interesting_plan: string[] = [];
   interesting_plan_inde(value: string) {
     var i;
-    for (i = 0; i < this.interesting_plan.length; i) {
+    for (i = 0; i < this.interesting_plan.length; i++) {
       if (this.interesting_plan[i] == value) {
         this.interesting_plan.splice(i, 1);
         i--;
@@ -119,7 +119,7 @@ export class StatisticsComponent implements OnInit {
   goal_reason: string[] = [];
   goal_reason_inde(value: string) {
     var i;
-    for (i = 0; i < this.goal_reason.length; i) {
+    for (i = 0; i < this.goal_reason.length; i++) {
       if (this.goal_reason[i] == value) {
         this.goal_reason.splice(i, 1);
         i--;
@@ -136,7 +136,7 @@ export class StatisticsComponent implements OnInit {
   pnc_best: string[] = [];
   pnc_best_inde(value: string) {
     var i;
-    for (i = 0; i < this.pnc_best.length; i) {
+    for (i = 0; i < this.pnc_best.length; i++) {
       if (this.pnc_best[i] == value) {
         this.pnc_best.splice(i, 1);
         i--;
@@ -149,7 +149,7 @@ export class StatisticsComponent implements OnInit {
   stress_best: string[] = [];
   stress_best_inde(value: string) {
     var i;
-    for (i = 0; i < this.stress_best.length; i) {
+    for (i = 0; i < this.stress_best.length; i++) {
       if (this.stress_best[i] == value) {
         this.stress_best.splice(i, 1);
         i--;
