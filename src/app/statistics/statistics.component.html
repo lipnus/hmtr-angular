@@ -1,392 +1,477 @@
 <app-main></app-main>
 
 <div class="body">
-  <div class="head">
-    <h1>통계 기준 설정</h1>
-  </div>
+  <div class="title">STATISTICS OPTION</div>
+
   <div class="part">
     <button class="dropdown" (click)="switch_1()">
-      <span>1유형:기본인적사항</span><div class="state" *ngIf="opened_1">∨</div><div class="state" *ngIf="1-opened_1">∧</div>
+      <span>1유형 : 기본인적사항</span>
+      <div class="state" *ngIf="opened_1">CLOSE▲</div>
+      <div class="state" *ngIf="1-opened_1">OPEN▼</div>
     </button>
+
     <div class="list" *ngIf="opened_1">
-      <div [ngClass]="{'classgrey':groups_state, 'classblack':1-groups_state}">
-        <p>그룹</p>
+
+      <div class="satistics-box" [ngClass]="{'classgrey':groups_state, 'classblack':1-groups_state}">
+        <div class="sub-title">그룹</div>
         <input [(ngModel)]="groupname" (keyup)="findGroups()">
         <div *ngIf="grouplist_selected">
           <ul class="groups_selected" *ngFor="let group of grouplist_selected">
-            {{group}}<button class="delete" (click)="deletegroup(group)">X</button>
+            {{group}} <button class="delete" (click)="deletegroup(group)">X</button>
           </ul>
-        </div>        
+        </div>
         <div *ngIf="grouplist_search">
           <ul class="groups_search" *ngFor="let group of grouplist_search">
             <button class="searchbox" (click)="selectgroup(group)">{{group}}</button>
           </ul>
         </div>
-        <table class="cover" (click)="groups_state=1-groups_state">　</table>
+        <div class="cover" (click)="groups_state=1-groups_state">SWITCH</div>
       </div>
-      <div [ngClass]="{'classgrey':gender_state, 'classblack':1-gender_state}">
-        <p>성별</p>
-        <input type="radio" [(ngModel)]="gender" name="gender" value="남자">남자
-        <input type="radio" [(ngModel)]="gender" name="gender" value="여자">여자
-        <table class="cover" (click)="gender_state = 1-gender_state">　</table>
+
+      <div class="satistics-box" [ngClass]="{'classgrey':gender_state, 'classblack':1-gender_state}">
+        <div class="sub-title">성별</div>
+        <div class="sub-static-content">
+          <input type="radio" [(ngModel)]="gender" name="gender" value="남자">남자
+          <input type="radio" [(ngModel)]="gender" name="gender" value="여자">여자
+        </div>
+        <div class="cover" (click)="gender_state = 1-gender_state">SWITCH</div>
       </div>
-      <div [ngClass]="{'classgrey':grade_state[0], 'classblack':1-grade_state[0]}">
-        <p>학년</p>
-        <button [ngClass]="{'btn_select':grade_state[1], 'btn_unselect':1-grade_state[1]}" (click)="grade_inde('중1'); grade_state[1]=1-grade_state[1]; ">중1</button>
-        <button [ngClass]="{'btn_select':grade_state[2], 'btn_unselect':1-grade_state[2]}" (click)="grade_inde('중2'); grade_state[2]=1-grade_state[2]; ">중2</button>
-        <button [ngClass]="{'btn_select':grade_state[3], 'btn_unselect':1-grade_state[3]}" (click)="grade_inde('중3'); grade_state[3]=1-grade_state[3]; ">중3</button>
-        <button [ngClass]="{'btn_select':grade_state[4], 'btn_unselect':1-grade_state[4]}" (click)="grade_inde('고1'); grade_state[4]=1-grade_state[4]; ">고1</button>
-        <button [ngClass]="{'btn_select':grade_state[5], 'btn_unselect':1-grade_state[5]}" (click)="grade_inde('고2'); grade_state[5]=1-grade_state[5]; ">고2</button>
-        <button [ngClass]="{'btn_select':grade_state[6], 'btn_unselect':1-grade_state[6]}" (click)="grade_inde('고3'); grade_state[6]=1-grade_state[6]; ">고3</button>
-        <button [ngClass]="{'btn_select':grade_state[7], 'btn_unselect':1-grade_state[7]}" (click)="grade_inde('N수'); grade_state[7]=1-grade_state[7]; ">N수</button>
-        <table class="cover" (click)="grade_state[0] = 1-grade_state[0]">　</table>
+
+      <div class="satistics-box" [ngClass]="{'classgrey':grade_state[0], 'classblack':1-grade_state[0]}">
+        <div class="sub-title">학년</div>
+        <div class="sub-static-content">
+          <button [ngClass]="{'btn_select':grade_state[1], 'btn_unselect':1-grade_state[1]}" (click)="grade_inde('중1'); grade_state[1]=1-grade_state[1]; ">중1</button>
+          <button [ngClass]="{'btn_select':grade_state[2], 'btn_unselect':1-grade_state[2]}" (click)="grade_inde('중2'); grade_state[2]=1-grade_state[2]; ">중2</button>
+          <button [ngClass]="{'btn_select':grade_state[3], 'btn_unselect':1-grade_state[3]}" (click)="grade_inde('중3'); grade_state[3]=1-grade_state[3]; ">중3</button>
+          <button [ngClass]="{'btn_select':grade_state[4], 'btn_unselect':1-grade_state[4]}" (click)="grade_inde('고1'); grade_state[4]=1-grade_state[4]; ">고1</button>
+          <button [ngClass]="{'btn_select':grade_state[5], 'btn_unselect':1-grade_state[5]}" (click)="grade_inde('고2'); grade_state[5]=1-grade_state[5]; ">고2</button>
+          <button [ngClass]="{'btn_select':grade_state[6], 'btn_unselect':1-grade_state[6]}" (click)="grade_inde('고3'); grade_state[6]=1-grade_state[6]; ">고3</button>
+          <button [ngClass]="{'btn_select':grade_state[7], 'btn_unselect':1-grade_state[7]}" (click)="grade_inde('N수'); grade_state[7]=1-grade_state[7]; ">N수</button>
+        </div>
+        <div class="cover" (click)="grade_state[0] = 1-grade_state[0]">SWITCH</div>
       </div>
-      <div [ngClass]="{'classgrey':field_state[0], 'classblack':1-field_state[0]}">
-        <p>진로 분야</p>
-        <button [ngClass]="{'btn_select':field_state[1], 'btn_unselect':1-field_state[1]}" (click)="field_inde('인문'); field_state[1]=1-field_state[1]; ">인문</button>
-        <button [ngClass]="{'btn_select':field_state[2], 'btn_unselect':1-field_state[2]}" (click)="field_inde('사회과학'); field_state[2]=1-field_state[2]; ">사회과학</button>
-        <button [ngClass]="{'btn_select':field_state[3], 'btn_unselect':1-field_state[3]}" (click)="field_inde('자연과학'); field_state[3]=1-field_state[3]; ">자연과학</button>
-        <button [ngClass]="{'btn_select':field_state[4], 'btn_unselect':1-field_state[4]}" (click)="field_inde('간호/의학'); field_state[4]=1-field_state[4]; ">간호/의학</button>
-        <button [ngClass]="{'btn_select':field_state[5], 'btn_unselect':1-field_state[5]}" (click)="field_inde('경영'); field_state[5]=1-field_state[5]; ">경영</button>
-        <button [ngClass]="{'btn_select':field_state[6], 'btn_unselect':1-field_state[6]}" (click)="field_inde('예/체능'); field_state[6]=1-field_state[6]; ">예/체능</button>
-        <button [ngClass]="{'btn_select':field_state[7], 'btn_unselect':1-field_state[7]}" (click)="field_inde('법학'); field_state[7]=1-field_state[7]; ">법학</button>
-        <button [ngClass]="{'btn_select':field_state[8], 'btn_unselect':1-field_state[8]}" (click)="field_inde('교육'); field_state[8]=1-field_state[8]; ">교육</button>
-        <button [ngClass]="{'btn_select':field_state[9], 'btn_unselect':1-field_state[9]}" (click)="field_inde('공학'); field_state[9]=1-field_state[9]; ">공학</button>
-        <button [ngClass]="{'btn_select':field_state[10], 'btn_unselect':1-field_state[10]}" (click)="field_inde('미정'); field_state[10]=1-field_state[10]; ">미정</button>
-        <table class="cover" (click)="field_state[0] = 1-field_state[0]">　</table>
+      <div class="satistics-box" [ngClass]="{'classgrey':field_state[0], 'classblack':1-field_state[0]}">
+        <div class="sub-title">진로 분야</div>
+        <div class="sub-static-content">
+          <button [ngClass]="{'btn_select':field_state[1], 'btn_unselect':1-field_state[1]}" (click)="field_inde('인문'); field_state[1]=1-field_state[1]; ">인문</button>
+          <button [ngClass]="{'btn_select':field_state[2], 'btn_unselect':1-field_state[2]}" (click)="field_inde('사회과학'); field_state[2]=1-field_state[2]; ">사회과학</button>
+          <button [ngClass]="{'btn_select':field_state[3], 'btn_unselect':1-field_state[3]}" (click)="field_inde('자연과학'); field_state[3]=1-field_state[3]; ">자연과학</button>
+          <button [ngClass]="{'btn_select':field_state[4], 'btn_unselect':1-field_state[4]}" (click)="field_inde('간호/의학'); field_state[4]=1-field_state[4]; ">간호/의학</button>
+          <button [ngClass]="{'btn_select':field_state[5], 'btn_unselect':1-field_state[5]}" (click)="field_inde('경영'); field_state[5]=1-field_state[5]; ">경영</button>
+          <button [ngClass]="{'btn_select':field_state[6], 'btn_unselect':1-field_state[6]}" (click)="field_inde('예/체능'); field_state[6]=1-field_state[6]; ">예/체능</button>
+          <button [ngClass]="{'btn_select':field_state[7], 'btn_unselect':1-field_state[7]}" (click)="field_inde('법학'); field_state[7]=1-field_state[7]; ">법학</button>
+          <button [ngClass]="{'btn_select':field_state[8], 'btn_unselect':1-field_state[8]}" (click)="field_inde('교육'); field_state[8]=1-field_state[8]; ">교육</button>
+          <button [ngClass]="{'btn_select':field_state[9], 'btn_unselect':1-field_state[9]}" (click)="field_inde('공학'); field_state[9]=1-field_state[9]; ">공학</button>
+          <button [ngClass]="{'btn_select':field_state[10], 'btn_unselect':1-field_state[10]}" (click)="field_inde('미정'); field_state[10]=1-field_state[10]; ">미정</button>
+        </div>
+        <div class="cover" (click)="field_state[0] = 1-field_state[0]">SWITCH</div>
       </div>
-      <div [ngClass]="{'classgrey':interesting_plan_state[0], 'classblack':1-interesting_plan_state[0]}">
-        <p>관심 멘토링 항목</p>
-        <button [ngClass]="{'btn_select':interesting_plan_state[1], 'btn_unselect':1-interesting_plan_state[1]}" (click)="interesting_plan_inde('학습플래닝'); interesting_plan_state[1]=1-interesting_plan_state[1]; ">학습플래닝</button>
-        <button [ngClass]="{'btn_select':interesting_plan_state[2], 'btn_unselect':1-interesting_plan_state[2]}" (click)="interesting_plan_inde('진학플래닝'); interesting_plan_state[2]=1-interesting_plan_state[2]; ">진학플래닝</button>
-        <button [ngClass]="{'btn_select':interesting_plan_state[3], 'btn_unselect':1-interesting_plan_state[3]}" (click)="interesting_plan_inde('진로플래닝'); interesting_plan_state[3]=1-interesting_plan_state[3]; ">진로플래닝</button>
-        <table class="cover" (click)="interesting_plan_state[0] = 1-interesting_plan_state[0]">　</table>
+
+      <div class="satistics-box" [ngClass]="{'classgrey':interesting_plan_state[0], 'classblack':1-interesting_plan_state[0]}">
+        <div class="sub-title">관심 멘토링 항목</div>
+        <div class="sub-static-content">
+          <button [ngClass]="{'btn_select':interesting_plan_state[1], 'btn_unselect':1-interesting_plan_state[1]}" (click)="interesting_plan_inde('학습플래닝'); interesting_plan_state[1]=1-interesting_plan_state[1]; ">학습플래닝</button>
+          <button [ngClass]="{'btn_select':interesting_plan_state[2], 'btn_unselect':1-interesting_plan_state[2]}" (click)="interesting_plan_inde('진학플래닝'); interesting_plan_state[2]=1-interesting_plan_state[2]; ">진학플래닝</button>
+          <button [ngClass]="{'btn_select':interesting_plan_state[3], 'btn_unselect':1-interesting_plan_state[3]}" (click)="interesting_plan_inde('진로플래닝'); interesting_plan_state[3]=1-interesting_plan_state[3]; ">진로플래닝</button>
+        </div>
+        <div class="cover" (click)="interesting_plan_state[0] = 1-interesting_plan_state[0]">SWITCH</div>
       </div>
-      <div [ngClass]="{'classgrey':attainment_state, 'classblack':1-attainment_state}">
-        <p>목표달성 경험여부</p>
-        <input type="radio" [(ngModel)]="attainment" name="attainment" value="있다">있다
-        <input type="radio" [(ngModel)]="attainment" name="attainment" value="없다">없다
-        <table class="cover" (click)="attainment_state = 1-attainment_state">　</table>
+
+      <div class="satistics-box" [ngClass]="{'classgrey':attainment_state, 'classblack':1-attainment_state}">
+        <div class="sub-title">목표달성 경험여부</div>
+        <div class="sub-static-content">
+          <input type="radio" [(ngModel)]="attainment" name="attainment" value="있다">있다
+          <input type="radio" [(ngModel)]="attainment" name="attainment" value="없다">없다
+        </div>
+        <div class="cover" (click)="attainment_state = 1-attainment_state">SWITCH</div>
       </div>
-      <div [ngClass]="{'classgrey':goal_reason_state[0], 'classblack':1-goal_reason_state[0]}">
-        <p>목표설정이유</p>
-        <button [ngClass]="{'btn_select':goal_reason_state[1], 'btn_unselect':1-goal_reason_state[1]}" (click)="goal_reason_inde('관심'); goal_reason_state[1]=1-goal_reason_state[1]; ">관심</button>
-        <button [ngClass]="{'btn_select':goal_reason_state[2], 'btn_unselect':1-goal_reason_state[2]}" (click)="goal_reason_inde('연습'); goal_reason_state[2]=1-goal_reason_state[2]; ">연습</button>
-        <button [ngClass]="{'btn_select':goal_reason_state[3], 'btn_unselect':1-goal_reason_state[3]}" (click)="goal_reason_inde('목적'); goal_reason_state[3]=1-goal_reason_state[3]; ">목적</button>
-        <button [ngClass]="{'btn_select':goal_reason_state[4], 'btn_unselect':1-goal_reason_state[4]}" (click)="goal_reason_inde('희망'); goal_reason_state[4]=1-goal_reason_state[4]; ">희망</button>
-        <table class="cover" (click)="goal_reason_state[0] = 1-goal_reason_state[0]">　</table>
+
+      <div class="satistics-box" [ngClass]="{'classgrey':goal_reason_state[0], 'classblack':1-goal_reason_state[0]}">
+        <div class="sub-title">목표설정이유</div>
+        <div class="sub-static-content">
+          <button [ngClass]="{'btn_select':goal_reason_state[1], 'btn_unselect':1-goal_reason_state[1]}" (click)="goal_reason_inde('관심'); goal_reason_state[1]=1-goal_reason_state[1]; ">관심</button>
+          <button [ngClass]="{'btn_select':goal_reason_state[2], 'btn_unselect':1-goal_reason_state[2]}" (click)="goal_reason_inde('연습'); goal_reason_state[2]=1-goal_reason_state[2]; ">연습</button>
+          <button [ngClass]="{'btn_select':goal_reason_state[3], 'btn_unselect':1-goal_reason_state[3]}" (click)="goal_reason_inde('목적'); goal_reason_state[3]=1-goal_reason_state[3]; ">목적</button>
+          <button [ngClass]="{'btn_select':goal_reason_state[4], 'btn_unselect':1-goal_reason_state[4]}" (click)="goal_reason_inde('희망'); goal_reason_state[4]=1-goal_reason_state[4]; ">희망</button>
+        </div>
+        <div class="cover" (click)="goal_reason_state[0] = 1-goal_reason_state[0]">SWITCH</div>
       </div>
     </div>
   </div>
+
+
+
   <div class="part">
     <button class="dropdown" (click)="switch_2()">
-      <span>2유형:학습행동유형</span><div class="state" *ngIf="opened_2">∨</div><div class="state" *ngIf="1-opened_2">∧</div>
+      <span>2유형 : 학습행동유형</span>
+      <div class="state" *ngIf="opened_2">CLOSE▲</div>
+      <div class="state" *ngIf="1-opened_2">OPEN▼</div>
     </button>
+
     <div class="list" *ngIf="opened_2">
-      <div [ngClass]="{'classgrey':best_score_cskd_state, 'classblack':1-best_score_cskd_state}">
-        <p>학습행동유형 최고점</p>
-        <input type="radio" [(ngModel)]="best_score_cskd" name="best_score_cskd" value="채움">채움
-        <input type="radio" [(ngModel)]="best_score_cskd" name="best_score_cskd" value="세움">세움
-        <input type="radio" [(ngModel)]="best_score_cskd" name="best_score_cskd" value="키움">키움
-        <input type="radio" [(ngModel)]="best_score_cskd" name="best_score_cskd" value="돋움">돋움
-        <table class="cover" (click)="best_score_cskd_state = 1-best_score_cskd_state">　</table>
+      <div class="satistics-box"  [ngClass]="{'classgrey':best_score_cskd_state, 'classblack':1-best_score_cskd_state}">
+        <div class="sub-title">학습행동유형 최고점</div>
+        <div class="sub-static-content">
+          <input type="radio" [(ngModel)]="best_score_cskd" name="best_score_cskd" value="채움">채움
+          <input type="radio" [(ngModel)]="best_score_cskd" name="best_score_cskd" value="세움">세움
+          <input type="radio" [(ngModel)]="best_score_cskd" name="best_score_cskd" value="키움">키움
+          <input type="radio" [(ngModel)]="best_score_cskd" name="best_score_cskd" value="돋움">돋움
+        </div>
+        <div class="cover" (click)="best_score_cskd_state = 1-best_score_cskd_state">SWITCH</div>
       </div>
-      <div *ngIf="best_score_cskd=='채움'" [ngClass]="{'classgrey':best_type_state, 'classblack':1-best_type_state}">
-        <p>학습행동유형 최고점 세부유형</p>
-        <input type="radio" [(ngModel)]="best_type" name="best_type" value="책임">책임
-        <input type="radio" [(ngModel)]="best_type" name="best_type" value="현실">현실
-        <input type="radio" [(ngModel)]="best_type" name="best_type" value="대비">대비
-        <input type="radio" [(ngModel)]="best_type" name="best_type" value="조언">조언
-        <input type="radio" [(ngModel)]="best_type" name="best_type" value="체계">체계
-        <table class="cover" (click)="best_type_state = 1-best_type_state">　</table>
+
+      <div class="satistics-box" *ngIf="best_score_cskd=='채움'" [ngClass]="{'classgrey':best_type_state, 'classblack':1-best_type_state}">
+        <div class="sub-title">학습행동유형 최고점 세부유형</div>
+        <div class="sub-static-content">
+          <input type="radio" [(ngModel)]="best_type" name="best_type" value="책임">책임
+          <input type="radio" [(ngModel)]="best_type" name="best_type" value="현실">현실
+          <input type="radio" [(ngModel)]="best_type" name="best_type" value="대비">대비
+          <input type="radio" [(ngModel)]="best_type" name="best_type" value="조언">조언
+          <input type="radio" [(ngModel)]="best_type" name="best_type" value="체계">체계
+        </div>
+        <div class="cover" (click)="best_type_state = 1-best_type_state">SWITCH</div>
       </div>
-      <div *ngIf="best_score_cskd=='세움'" [ngClass]="{'classgrey':best_type_state, 'classblack':1-best_type_state}">
-        <p>학습행동유형 최고점 세부유형</p>
-        <input type="radio" [(ngModel)]="best_type" name="best_type" value="감정">감정
-        <input type="radio" [(ngModel)]="best_type" name="best_type" value="타인">타인
-        <input type="radio" [(ngModel)]="best_type" name="best_type" value="목표">목표
-        <input type="radio" [(ngModel)]="best_type" name="best_type" value="조화">조화
-        <input type="radio" [(ngModel)]="best_type" name="best_type" value="주제">주제
-        <table class="cover" (click)="best_type_state = 1-best_type_state">　</table>
+
+      <div class="satistics-box" *ngIf="best_score_cskd=='세움'" [ngClass]="{'classgrey':best_type_state, 'classblack':1-best_type_state}">
+        <div class="sub-title">학습행동유형 최고점 세부유형</div>
+        <div class="sub-static-content">
+          <input type="radio" [(ngModel)]="best_type" name="best_type" value="감정">감정
+          <input type="radio" [(ngModel)]="best_type" name="best_type" value="타인">타인
+          <input type="radio" [(ngModel)]="best_type" name="best_type" value="목표">목표
+          <input type="radio" [(ngModel)]="best_type" name="best_type" value="조화">조화
+          <input type="radio" [(ngModel)]="best_type" name="best_type" value="주제">주제
+        </div>
+        <div class="cover" (click)="best_type_state = 1-best_type_state">SWITCH</div>
       </div>
-      <div *ngIf="best_score_cskd=='키움'" [ngClass]="{'classgrey':best_type_state, 'classblack':1-best_type_state}">
-        <p>학습행동유형 최고점 세부유형</p>
-        <input type="radio" [(ngModel)]="best_type" name="best_type" value="변화">변화
-        <input type="radio" [(ngModel)]="best_type" name="best_type" value="조작">조작
-        <input type="radio" [(ngModel)]="best_type" name="best_type" value="주체">주체
-        <input type="radio" [(ngModel)]="best_type" name="best_type" value="탐색">탐색
-        <input type="radio" [(ngModel)]="best_type" name="best_type" value="합리">합리
-        <table class="cover" (click)="best_type_state = 1-best_type_state">　</table>
+
+      <div class="satistics-box" *ngIf="best_score_cskd=='키움'" [ngClass]="{'classgrey':best_type_state, 'classblack':1-best_type_state}">
+        <div class="sub-title">학습행동유형 최고점 세부유형</div>
+        <div class="sub-static-content">
+          <input type="radio" [(ngModel)]="best_type" name="best_type" value="변화">변화
+          <input type="radio" [(ngModel)]="best_type" name="best_type" value="조작">조작
+          <input type="radio" [(ngModel)]="best_type" name="best_type" value="주체">주체
+          <input type="radio" [(ngModel)]="best_type" name="best_type" value="탐색">탐색
+          <input type="radio" [(ngModel)]="best_type" name="best_type" value="합리">합리
+        </div>
+        <div class="cover" (click)="best_type_state = 1-best_type_state">SWITCH</div>
       </div>
-      <div *ngIf="best_score_cskd=='돋움'" [ngClass]="{'classgrey':best_type_state, 'classblack':1-best_type_state}">
-        <p>학습행동유형 최고점 세부유형</p>
-        <input type="radio" [(ngModel)]="best_type" name="best_type" value="창의">창의
-        <input type="radio" [(ngModel)]="best_type" name="best_type" value="예술">예술
-        <input type="radio" [(ngModel)]="best_type" name="best_type" value="자아">자아
-        <input type="radio" [(ngModel)]="best_type" name="best_type" value="활동">활동
-        <input type="radio" [(ngModel)]="best_type" name="best_type" value="분석">분석
-        <table class="cover" (click)="best_type_state = 1-best_type_state">　</table>
+
+      <div class="satistics-box" *ngIf="best_score_cskd=='돋움'" [ngClass]="{'classgrey':best_type_state, 'classblack':1-best_type_state}">
+        <div class="sub-title">학습행동유형 최고점 세부유형</div>
+        <div class="sub-static-content">
+          <input type="radio" [(ngModel)]="best_type" name="best_type" value="창의">창의
+          <input type="radio" [(ngModel)]="best_type" name="best_type" value="예술">예술
+          <input type="radio" [(ngModel)]="best_type" name="best_type" value="자아">자아
+          <input type="radio" [(ngModel)]="best_type" name="best_type" value="활동">활동
+          <input type="radio" [(ngModel)]="best_type" name="best_type" value="분석">분석
+        </div>
+        <div class="cover" (click)="best_type_state = 1-best_type_state">SWITCH</div>
       </div>
-      <div *ngIf="!best_score_cskd" [ngClass]="{'classgrey':best_type_state, 'classblack':1-best_type_state}">
-        <p>학습행동유형 최고점 세부유형</p>
-        <input type="radio" [(ngModel)]="best_type" name="best_type" value="">　　
-        <input type="radio" [(ngModel)]="best_type" name="best_type" value="">　　
-        <input type="radio" [(ngModel)]="best_type" name="best_type" value="">　　
-        <input type="radio" [(ngModel)]="best_type" name="best_type" value="">　　
-        <input type="radio" [(ngModel)]="best_type" name="best_type" value="">　　
-        <table class="cover" (click)="best_type_state = 1-best_type_state">　</table>
+
+      <div class="satistics-box" *ngIf="!best_score_cskd" [ngClass]="{'classgrey':best_type_state, 'classblack':1-best_type_state}">
+        <div class="sub-title">학습행동유형 최고점 세부유형</div>
+        <div class="sub-static-content">
+          <input type="radio" [(ngModel)]="best_type" name="best_type" value="">　　
+          <input type="radio" [(ngModel)]="best_type" name="best_type" value="">　　
+          <input type="radio" [(ngModel)]="best_type" name="best_type" value="">　　
+          <input type="radio" [(ngModel)]="best_type" name="best_type" value="">　　
+          <input type="radio" [(ngModel)]="best_type" name="best_type" value="">　　
+        </div>
+        <div class="cover" (click)="best_type_state = 1-best_type_state">SWITCH</div>
       </div>
     </div>
   </div>
+
+
   <div class="part">
     <button class="dropdown" (click)="switch_3()">
-      <span>3유형:학습적성유형</span><div class="state" *ngIf="opened_3">∨</div><div class="state" *ngIf="1-opened_3">∧</div>
+      <span>3유형 : 학습적성유형</span>
+      <div class="state" *ngIf="opened_3">CLOSE▲</div>
+      <div class="state" *ngIf="1-opened_3">OPEN▼</div>
     </button>
     <div class="list" *ngIf="opened_3">
-      <div [ngClass]="{'classgrey':pnc_best_state[0], 'classblack':1-pnc_best_state[0]}">
-        <p>장단점 최고점</p>
-        <button [ngClass]="{'btn_select':pnc_best_state[1], 'btn_unselect':1-pnc_best_state[1]}" (click)="pnc_best_inde('실천'); pnc_best_state[1]=1-pnc_best_state[1]; ">실천</button>
-        <button [ngClass]="{'btn_select':pnc_best_state[2], 'btn_unselect':1-pnc_best_state[2]}" (click)="pnc_best_inde('주도'); pnc_best_state[2]=1-pnc_best_state[2]; ">주도</button>
-        <button [ngClass]="{'btn_select':pnc_best_state[3], 'btn_unselect':1-pnc_best_state[3]}" (click)="pnc_best_inde('열정'); pnc_best_state[3]=1-pnc_best_state[3]; ">열정</button>
-        <button [ngClass]="{'btn_select':pnc_best_state[4], 'btn_unselect':1-pnc_best_state[4]}" (click)="pnc_best_inde('계획'); pnc_best_state[4]=1-pnc_best_state[4]; ">계획</button>
-        <button [ngClass]="{'btn_select':pnc_best_state[5], 'btn_unselect':1-pnc_best_state[5]}" (click)="pnc_best_inde('창의'); pnc_best_state[5]=1-pnc_best_state[5]; ">창의</button>
-        <button [ngClass]="{'btn_select':pnc_best_state[6], 'btn_unselect':1-pnc_best_state[6]}" (click)="pnc_best_inde('관심'); pnc_best_state[6]=1-pnc_best_state[6]; ">관심</button>
-        <table class="cover" (click)="pnc_best_state[0] = 1-pnc_best_state[0]">　</table>
+      <div class="satistics-box" [ngClass]="{'classgrey':pnc_best_state[0], 'classblack':1-pnc_best_state[0]}">
+        <div class="sub-title">장단점 최고점</div>
+        <div class="sub-static-content">
+          <button [ngClass]="{'btn_select':pnc_best_state[1], 'btn_unselect':1-pnc_best_state[1]}" (click)="pnc_best_inde('실천'); pnc_best_state[1]=1-pnc_best_state[1]; ">실천</button>
+          <button [ngClass]="{'btn_select':pnc_best_state[2], 'btn_unselect':1-pnc_best_state[2]}" (click)="pnc_best_inde('주도'); pnc_best_state[2]=1-pnc_best_state[2]; ">주도</button>
+          <button [ngClass]="{'btn_select':pnc_best_state[3], 'btn_unselect':1-pnc_best_state[3]}" (click)="pnc_best_inde('열정'); pnc_best_state[3]=1-pnc_best_state[3]; ">열정</button>
+          <button [ngClass]="{'btn_select':pnc_best_state[4], 'btn_unselect':1-pnc_best_state[4]}" (click)="pnc_best_inde('계획'); pnc_best_state[4]=1-pnc_best_state[4]; ">계획</button>
+          <button [ngClass]="{'btn_select':pnc_best_state[5], 'btn_unselect':1-pnc_best_state[5]}" (click)="pnc_best_inde('창의'); pnc_best_state[5]=1-pnc_best_state[5]; ">창의</button>
+          <button [ngClass]="{'btn_select':pnc_best_state[6], 'btn_unselect':1-pnc_best_state[6]}" (click)="pnc_best_inde('관심'); pnc_best_state[6]=1-pnc_best_state[6]; ">관심</button>
+        </div>
+        <div class="cover" (click)="pnc_best_state[0] = 1-pnc_best_state[0]">SWITCH</div>
       </div>
-      <div [ngClass]="{'classgrey':stress_best_state[0], 'classblack':1-stress_best_state[0]}">
-        <p>스트레스 최고점</p>
-        <button [ngClass]="{'btn_select':stress_best_state[1], 'btn_unselect':1-stress_best_state[1]}" (click)="stress_best_inde('언어'); stress_best_state[1]=1-stress_best_state[1]; ">언어</button>
-        <button [ngClass]="{'btn_select':stress_best_state[2], 'btn_unselect':1-stress_best_state[2]}" (click)="stress_best_inde('논리수학'); stress_best_state[2]=1-stress_best_state[2]; ">논리수학</button>
-        <button [ngClass]="{'btn_select':stress_best_state[3], 'btn_unselect':1-stress_best_state[3]}" (click)="stress_best_inde('시각공간'); stress_best_state[3]=1-stress_best_state[3]; ">시각공간</button>
-        <button [ngClass]="{'btn_select':stress_best_state[4], 'btn_unselect':1-stress_best_state[4]}" (click)="stress_best_inde('신체운동'); stress_best_state[4]=1-stress_best_state[4]; ">신체운동</button>
-        <button [ngClass]="{'btn_select':stress_best_state[5], 'btn_unselect':1-stress_best_state[5]}" (click)="stress_best_inde('음악'); stress_best_state[5]=1-stress_best_state[5]; ">음악</button>
-        <button [ngClass]="{'btn_select':stress_best_state[6], 'btn_unselect':1-stress_best_state[6]}" (click)="stress_best_inde('자연'); stress_best_state[6]=1-stress_best_state[6]; ">자연</button>
-        <button [ngClass]="{'btn_select':stress_best_state[7], 'btn_unselect':1-stress_best_state[7]}" (click)="stress_best_inde('자기이해'); stress_best_state[7]=1-stress_best_state[7]; ">자기이해</button>
-        <button [ngClass]="{'btn_select':stress_best_state[8], 'btn_unselect':1-stress_best_state[8]}" (click)="stress_best_inde('대인관계'); stress_best_state[8]=1-stress_best_state[8]; ">대인관계</button>
-        <table class="cover" (click)="stress_best_state[0] = 1-stress_best_state[0]">　</table>
+
+      <div class="satistics-box" [ngClass]="{'classgrey':stress_best_state[0], 'classblack':1-stress_best_state[0]}">
+        <div class="sub-title">스트레스 최고점</div>
+
+        <div class="sub-static-content">
+          <button [ngClass]="{'btn_select':stress_best_state[1], 'btn_unselect':1-stress_best_state[1]}" (click)="stress_best_inde('언어'); stress_best_state[1]=1-stress_best_state[1]; ">언어</button>
+          <button [ngClass]="{'btn_select':stress_best_state[2], 'btn_unselect':1-stress_best_state[2]}" (click)="stress_best_inde('논리수학'); stress_best_state[2]=1-stress_best_state[2]; ">논리수학</button>
+          <button [ngClass]="{'btn_select':stress_best_state[3], 'btn_unselect':1-stress_best_state[3]}" (click)="stress_best_inde('시각공간'); stress_best_state[3]=1-stress_best_state[3]; ">시각공간</button>
+          <button [ngClass]="{'btn_select':stress_best_state[4], 'btn_unselect':1-stress_best_state[4]}" (click)="stress_best_inde('신체운동'); stress_best_state[4]=1-stress_best_state[4]; ">신체운동</button>
+          <button [ngClass]="{'btn_select':stress_best_state[5], 'btn_unselect':1-stress_best_state[5]}" (click)="stress_best_inde('음악'); stress_best_state[5]=1-stress_best_state[5]; ">음악</button>
+          <button [ngClass]="{'btn_select':stress_best_state[6], 'btn_unselect':1-stress_best_state[6]}" (click)="stress_best_inde('자연'); stress_best_state[6]=1-stress_best_state[6]; ">자연</button>
+          <button [ngClass]="{'btn_select':stress_best_state[7], 'btn_unselect':1-stress_best_state[7]}" (click)="stress_best_inde('자기이해'); stress_best_state[7]=1-stress_best_state[7]; ">자기이해</button>
+          <button [ngClass]="{'btn_select':stress_best_state[8], 'btn_unselect':1-stress_best_state[8]}" (click)="stress_best_inde('대인관계'); stress_best_state[8]=1-stress_best_state[8]; ">대인관계</button>
+        </div>
+
+        <div class="cover" (click)="stress_best_state[0] = 1-stress_best_state[0]">SWITCH</div>
       </div>
-      <div [ngClass]="{'classgrey':support_state, 'classblack':1-support_state}">
-        <p>지지정도</p>
-        <input type="radio" [(ngModel)]="support" name="support" value="매우높음">매우높음
-        <input type="radio" [(ngModel)]="support" name="support" value="높음">높음
-        <input type="radio" [(ngModel)]="support" name="support" value="보통">보통
-        <input type="radio" [(ngModel)]="support" name="support" value="낮음">낮음
-        <input type="radio" [(ngModel)]="support" name="support" value="매우낮음">매우낮음
-        <table class="cover" (click)="support_state = 1-support_state">　</table>
+      <div class="satistics-box" [ngClass]="{'classgrey':support_state, 'classblack':1-support_state}">
+        <div class="sub-title">지지정도</div>
+        <div class="sub-static-content">
+          <input type="radio" [(ngModel)]="support" name="support" value="매우높음">매우높음
+          <input type="radio" [(ngModel)]="support" name="support" value="높음">높음
+          <input type="radio" [(ngModel)]="support" name="support" value="보통">보통
+          <input type="radio" [(ngModel)]="support" name="support" value="낮음">낮음
+          <input type="radio" [(ngModel)]="support" name="support" value="매우낮음">매우낮음
+        </div>
+        <div class="cover" (click)="support_state = 1-support_state">SWITCH</div>
       </div>
-      <div [ngClass]="{'classgrey':demand_state, 'classblack':1-demand_state}">
-        <p>요구정도</p>
-        <input type="radio" [(ngModel)]="demand" name="demand" value="매우높음">매우높음
-        <input type="radio" [(ngModel)]="demand" name="demand" value="높음">높음
-        <input type="radio" [(ngModel)]="demand" name="demand" value="보통">보통
-        <input type="radio" [(ngModel)]="demand" name="demand" value="낮음">낮음
-        <input type="radio" [(ngModel)]="demand" name="demand" value="매우낮음">매우낮음
-        <table class="cover" (click)="demand_state = 1-demand_state">　</table>
+
+      <div class="satistics-box" [ngClass]="{'classgrey':demand_state, 'classblack':1-demand_state}">
+        <div class="sub-title">요구정도</div>
+        <div class="sub-static-content">
+          <input type="radio" [(ngModel)]="demand" name="demand" value="매우높음">매우높음
+          <input type="radio" [(ngModel)]="demand" name="demand" value="높음">높음
+          <input type="radio" [(ngModel)]="demand" name="demand" value="보통">보통
+          <input type="radio" [(ngModel)]="demand" name="demand" value="낮음">낮음
+          <input type="radio" [(ngModel)]="demand" name="demand" value="매우낮음">매우낮음
+        </div>
+        <div class="cover" (click)="demand_state = 1-demand_state">SWITCH</div>
       </div>
-      <div [ngClass]="{'classgrey':activity_helpful_state, 'classblack':1-activity_helpful_state}">
-        <p>도움이 된 활동</p>
-        <input type="radio" [(ngModel)]="activity_helpful" name="activity_helpful" value=132>교내외 동아리
-        <input type="radio" [(ngModel)]="activity_helpful" name="activity_helpful" value=133>교내외 멘토링
-        <input type="radio" [(ngModel)]="activity_helpful" name="activity_helpful" value=134>독서/연구활동
-        <input type="radio" [(ngModel)]="activity_helpful" name="activity_helpful" value=135>강연/행사/박람회
-        <input type="radio" [(ngModel)]="activity_helpful" name="activity_helpful" value=136>학원 및 온라인 강의
-        <input type="radio" [(ngModel)]="activity_helpful" name="activity_helpful" value=137>종합 컨설팅
-        <input type="radio" [(ngModel)]="activity_helpful" name="activity_helpful" value=138>공모전 참가
-        <input type="radio" [(ngModel)]="activity_helpful" name="activity_helpful" value=139>자격증 취득
-        <table class="cover" (click)="activity_helpful_state = 1-activity_helpful_state">　</table>
+
+      <div class="satistics-box" [ngClass]="{'classgrey':activity_helpful_state, 'classblack':1-activity_helpful_state}">
+        <div class="sub-title">도움이 된 활동</div>
+        <div class="sub-static-content">
+          <input type="radio" [(ngModel)]="activity_helpful" name="activity_helpful" value=132>교내외 동아리
+          <input type="radio" [(ngModel)]="activity_helpful" name="activity_helpful" value=133>교내외 멘토링
+          <input type="radio" [(ngModel)]="activity_helpful" name="activity_helpful" value=134>독서/연구활동
+          <input type="radio" [(ngModel)]="activity_helpful" name="activity_helpful" value=135>강연/행사/박람회
+          <input type="radio" [(ngModel)]="activity_helpful" name="activity_helpful" value=136>학원 및 온라인 강의
+          <input type="radio" [(ngModel)]="activity_helpful" name="activity_helpful" value=137>종합 컨설팅
+          <input type="radio" [(ngModel)]="activity_helpful" name="activity_helpful" value=138>공모전 참가
+          <input type="radio" [(ngModel)]="activity_helpful" name="activity_helpful" value=139>자격증 취득
+        </div>
+        <div class="cover" (click)="activity_helpful_state = 1-activity_helpful_state">SWITCH</div>
       </div>
-      <div [ngClass]="{'classgrey':activity_wish_state, 'classblack':1-activity_wish_state}">
-        <p>도움받고 싶은 활동</p>
-        <input type="radio" [(ngModel)]="activity_wish" name="activity_wish" value=141>학습법/필기법
-        <input type="radio" [(ngModel)]="activity_wish" name="activity_wish" value=142>자기주도학습
-        <input type="radio" [(ngModel)]="activity_wish" name="activity_wish" value=143>독서활동
-        <input type="radio" [(ngModel)]="activity_wish" name="activity_wish" value=144>동아리활동
-        <input type="radio" [(ngModel)]="activity_wish" name="activity_wish" value=145>진로정보
-        <input type="radio" [(ngModel)]="activity_wish" name="activity_wish" value=146>진학정보
-        <input type="radio" [(ngModel)]="activity_wish" name="activity_wish" value=147>면접대비
-        <input type="radio" [(ngModel)]="activity_wish" name="activity_wish" value=148>논/구술대비
-        <input type="radio" [(ngModel)]="activity_wish" name="activity_wish" value=149>생기부/자소서
-        <input type="radio" [(ngModel)]="activity_wish" name="activity_wish" value=150>포트폴리오
-        <input type="radio" [(ngModel)]="activity_wish" name="activity_wish" value=151>전문가 멘토링
-        <input type="radio" [(ngModel)]="activity_wish" name="activity_wish" value=152>종합 컨설팅
-        <table class="cover" (click)="activity_wish_state = 1-activity_wish_state">　</table>
+
+      <div class="satistics-box" [ngClass]="{'classgrey':activity_wish_state, 'classblack':1-activity_wish_state}">
+        <div class="sub-title">도움받고 싶은 활동</div>
+        <div class="sub-static-content">
+          <input type="radio" [(ngModel)]="activity_wish" name="activity_wish" value=141>학습법/필기법
+          <input type="radio" [(ngModel)]="activity_wish" name="activity_wish" value=142>자기주도학습
+          <input type="radio" [(ngModel)]="activity_wish" name="activity_wish" value=143>독서활동
+          <input type="radio" [(ngModel)]="activity_wish" name="activity_wish" value=144>동아리활동
+          <input type="radio" [(ngModel)]="activity_wish" name="activity_wish" value=145>진로정보
+          <input type="radio" [(ngModel)]="activity_wish" name="activity_wish" value=146>진학정보
+          <input type="radio" [(ngModel)]="activity_wish" name="activity_wish" value=147>면접대비
+          <input type="radio" [(ngModel)]="activity_wish" name="activity_wish" value=148>논/구술대비
+          <input type="radio" [(ngModel)]="activity_wish" name="activity_wish" value=149>생기부/자소서
+          <input type="radio" [(ngModel)]="activity_wish" name="activity_wish" value=150>포트폴리오
+          <input type="radio" [(ngModel)]="activity_wish" name="activity_wish" value=151>전문가 멘토링
+          <input type="radio" [(ngModel)]="activity_wish" name="activity_wish" value=152>종합 컨설팅
+        </div>
+        <div class="cover" (click)="activity_wish_state = 1-activity_wish_state">SWITCH</div>
       </div>
     </div>
   </div>
+
+
   <div class="part">
     <button class="dropdown" (click)="switch_4()">
-      <span>4유형:3 Major balance</span><div class="state" *ngIf="opened_4">∨</div><div class="state" *ngIf="1-opened_4">∧</div>
+      <span>4유형 : 3 Major balance</span>
+      <div class="state" *ngIf="opened_4">CLOSE▲</div>
+      <div class="state" *ngIf="1-opened_4">OPEN▼</div>
     </button>
     <div class="list" *ngIf="opened_4">
-      <div [ngClass]="{'classgrey':learning_grade_state, 'classblack':1-learning_grade_state}">
-        <p>학습상황 등급기준</p>
-        최소<select [(ngModel)]="learning_grade[1]">
-            <option value="0">0</option>
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-            <option value="6">6</option>
-            <option value="7">7</option>
-            <option value="8">8</option>
-            <option value="9">9</option>
-        </select>
-        최대<select [(ngModel)]="learning_grade[0]">
-            <option value="0">0</option>
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-            <option value="6">6</option>
-            <option value="7">7</option>
-            <option value="8">8</option>
-            <option value="9">9</option>
-        </select>
-        <table class="cover" (click)="learning_grade_state = 1-learning_grade_state">　</table>
+      <div class="satistics-box" [ngClass]="{'classgrey':learning_grade_state, 'classblack':1-learning_grade_state}">
+        <div class="sub-title">학습상황 등급기준</div>
+        <div class="sub-static-content">
+          최소 <select [(ngModel)]="learning_grade[1]">
+              <option value="0">0</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
+              <option value="9">9</option>
+          </select>
+           - 최대 <select [(ngModel)]="learning_grade[0]">
+              <option value="0">0</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
+              <option value="9">9</option>
+          </select>
+        </div>
+        <div class="cover" (click)="learning_grade_state = 1-learning_grade_state">SWITCH</div>
       </div>
-      <div [ngClass]="{'classgrey':course_grade_state, 'classblack':1-course_grade_state}">
-        <p>진로상황 등급기준</p>
-        최소<select [(ngModel)]="course_grade[1]">
-            <option value="0">0</option>
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-            <option value="6">6</option>
-            <option value="7">7</option>
-            <option value="8">8</option>
-            <option value="9">9</option>
-        </select>
-        최대<select [(ngModel)]="course_grade[0]">
-            <option value="0">0</option>
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-            <option value="6">6</option>
-            <option value="7">7</option>
-            <option value="8">8</option>
-            <option value="9">9</option>
-        </select>
-        <table class="cover" (click)="course_grade_state = 1-course_grade_state">　</table>
+      <div class="satistics-box" [ngClass]="{'classgrey':course_grade_state, 'classblack':1-course_grade_state}">
+        <div class="sub-title">진로상황 등급기준</div>
+        <div class="sub-static-content">
+          최소 <select [(ngModel)]="course_grade[1]">
+              <option value="0">0</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
+              <option value="9">9</option>
+          </select>
+           - 최대 <select [(ngModel)]="course_grade[0]">
+              <option value="0">0</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
+              <option value="9">9</option>
+          </select>
+        </div>
+        <div class="cover" (click)="course_grade_state = 1-course_grade_state">SWITCH</div>
       </div>
-      <div [ngClass]="{'classgrey':entrance_grade_state, 'classblack':1-entrance_grade_state}">
-        <p>진학상황 등급기준</p>
-        최소<select [(ngModel)]="entrance_grade[1]">
-            <option value="0">0</option>
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-            <option value="6">6</option>
-            <option value="7">7</option>
-            <option value="8">8</option>
-            <option value="9">9</option>
-        </select>
-        최대<select [(ngModel)]="entrance_grade[0]">
-            <option value="0">0</option>
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-            <option value="6">6</option>
-            <option value="7">7</option>
-            <option value="8">8</option>
-            <option value="9">9</option>
-        </select>
-        <table class="cover" (click)="entrance_grade_state = 1-entrance_grade_state">　</table>
+
+      <div class="satistics-box" [ngClass]="{'classgrey':entrance_grade_state, 'classblack':1-entrance_grade_state}">
+        <div class="sub-title">진학상황 등급기준</div>
+        <div class="sub-static-content">
+          최소 <select [(ngModel)]="entrance_grade[1]">
+              <option value="0">0</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
+              <option value="9">9</option>
+          </select>
+           - 최대 <select [(ngModel)]="entrance_grade[0]">
+              <option value="0">0</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
+              <option value="9">9</option>
+          </select>
+        </div>
+        <div class="cover" (click)="entrance_grade_state = 1-entrance_grade_state">SWITCH</div>
       </div>
-      <div [ngClass]="{'classgrey':check_grade_state, 'classblack':1-check_grade_state}">
-        <p>점검상황 등급기준</p>
-        최소<select [(ngModel)]="check_grade[1]">
-            <option value="0">0</option>
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-            <option value="6">6</option>
-            <option value="7">7</option>
-            <option value="8">8</option>
-            <option value="9">9</option>
-        </select>
-        최대<select [(ngModel)]="check_grade[0]">
-            <option value="0">0</option>
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-            <option value="6">6</option>
-            <option value="7">7</option>
-            <option value="8">8</option>
-            <option value="9">9</option>
-        </select>
-        <table class="cover" (click)="check_grade_state = 1-check_grade_state">　</table>
+
+      <div class="satistics-box" [ngClass]="{'classgrey':check_grade_state, 'classblack':1-check_grade_state}">
+        <div class="sub-title">점검상황 등급기준</div>
+        <div class="sub-static-content">
+          최소 <select [(ngModel)]="check_grade[1]">
+              <option value="0">0</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
+              <option value="9">9</option>
+          </select>
+           - 최대 <select [(ngModel)]="check_grade[0]">
+              <option value="0">0</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
+              <option value="9">9</option>
+          </select>
+        </div>
+        <div class="cover" (click)="check_grade_state = 1-check_grade_state">SWITCH</div>
       </div>
-      <div [ngClass]="{'classgrey':process_grade_state, 'classblack':1-process_grade_state}">
-        <p>과정상황 등급기준</p>
-        최소<select [(ngModel)]="process_grade[1]">
-            <option value="0">0</option>
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-            <option value="6">6</option>
-            <option value="7">7</option>
-            <option value="8">8</option>
-            <option value="9">9</option>
-        </select>
-        최대<select [(ngModel)]="process_grade[0]">
-            <option value="0">0</option>
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-            <option value="6">6</option>
-            <option value="7">7</option>
-            <option value="8">8</option>
-            <option value="9">9</option>
-        </select>
-        <table class="cover" (click)="process_grade_state = 1-process_grade_state">　</table>
+      <div class="satistics-box" [ngClass]="{'classgrey':process_grade_state, 'classblack':1-process_grade_state}">
+        <div class="sub-title">과정상황 등급기준</div>
+        <div class="sub-static-content">
+          최소 <select [(ngModel)]="process_grade[1]">
+              <option value="0">0</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
+              <option value="9">9</option>
+          </select>
+           - 최대 <select [(ngModel)]="process_grade[0]">
+              <option value="0">0</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
+              <option value="9">9</option>
+          </select>
+        </div>
+        <div class="cover" (click)="process_grade_state = 1-process_grade_state">SWITCH</div>
       </div>
-      <div [ngClass]="{'classgrey':result_grade_state, 'classblack':1-result_grade_state}">
-        <p>결과상황 등급기준</p>
-        최소<select [(ngModel)]="result_grade[1]">
-            <option value="0">0</option>
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-            <option value="6">6</option>
-            <option value="7">7</option>
-            <option value="8">8</option>
-            <option value="9">9</option>
-        </select>
-        최대<select [(ngModel)]="result_grade[0]">
-            <option value="0">0</option>
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-            <option value="6">6</option>
-            <option value="7">7</option>
-            <option value="8">8</option>
-            <option value="9">9</option>
-        </select>
-        <table class="cover" (click)="result_grade_state = 1-result_grade_state">　</table>
+
+      <div class="satistics-box" [ngClass]="{'classgrey':result_grade_state, 'classblack':1-result_grade_state}">
+        <div class="sub-title">결과상황 등급기준</div>
+        <div class="sub-static-content">
+          최소 <select [(ngModel)]="result_grade[1]">
+              <option value="0">0</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
+              <option value="9">9</option>
+          </select>
+           - 최대 <select [(ngModel)]="result_grade[0]">
+              <option value="0">0</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
+              <option value="9">9</option>
+          </select>
+        </div>
+        <div class="cover" (click)="result_grade_state = 1-result_grade_state">SWITCH</div>
       </div>
     </div>
   </div>
-  <a class="btn" (click)="goResult()" routerLink="/result/{{save_standard}}" target="_blank">결과확인</a>
+
+  <button class="result-btn" (click)="goResult()" routerLink="/result/{{save_standard}}" target="_blank">CONFIRM</button>
 </div>

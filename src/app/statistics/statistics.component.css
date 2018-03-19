@@ -5,15 +5,30 @@
     height : 100%;
     text-align : center;
 }
-.btn{
-    display: inline-block;
-    height: 100%;
-    width: 70px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    text-align: center;
-    font: 80% none;
+
+.title{
+  color: #3c3c3c;
+  margin-top: 150px;
+  font-size: 33px;
+  margin-bottom: 10px;
 }
+
+.dropdown {
+    font-size: 18px;
+    background: #3c3c3c;
+    color: #ffffff;
+    height: 60px;
+    width : 940px;
+    margin : 15px auto;
+    outline: none;
+    border: none;
+}
+
+.state{
+  margin-top: 8px;
+  font-size: 9px;
+}
+
 .part {
     text-align: center;
 }
@@ -22,34 +37,86 @@
     text-align: center;
 }
 
+.satistics-box{
+      width: 900px;
+      height: auto;
+      margin-left: auto;
+      margin-right: auto;
+
+      border-radius: 5px;
+
+      padding: 10px 10px 15px 10px;
+
+      margin-bottom: 10px;
+}
+
+.sub-title{
+  font-size: 14px;
+  padding-bottom: 16px;
+}
+
 .classblack {
+    color: #909090;
     background-color: #d8d8d8;
-    width : 90%;
-    margin : 20px auto;
 }
 
 .classgrey {
     background-color: #595959;
-    width : 90%;
-    margin : 20px auto;
+}
+
+
+.sub-static-content{
+  width: 640px;
+  font-size: 14px;
+  margin-left: auto;
+  margin-right: auto;
+
 }
 
 .btn_select {
-    background-color: lightcoral;
+    background-color: #5380F7;
+    color: #ffffff;
+    padding: 8px;
+    margin-left: 4px;
+    margin-bottom: 6px;
+    border: none;
+    outline: none;
 }
 
 .btn_unselect {
     background-color: white;
+    padding: 8px;
+    margin-left: 4px;
+    margin-bottom: 6px;
+    border: none;
+    outline: none;
 }
 
 .cover {
-    background-color: #333333;
-    width : 100%;
+    cursor: pointer;
+    margin-top: -25px;
+    float: right;
+    display: inline-block;
+    background-color: #3c3c3c;
+    padding: 5px;
+    color:#ffffff;
+    width : 100px;
     height : 100%;
 }
 
-.dropdown {
-    position : relative;
-    width : 80%;
-    margin : 20px auto;
+
+.result-btn{
+
+  margin-top: 50px;
+  background:#5380F7;
+  color:white;
+  padding: 1.05em;
+  width:300px;
+  text-align:center;
+  font-size:1.2em;
+  margin-bottom: 3em;
+  margin-left: 5px;
+  outline: none;
+  border: none;
+  cursor:pointer;
 }
