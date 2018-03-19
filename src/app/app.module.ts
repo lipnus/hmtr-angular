@@ -28,6 +28,7 @@ import { Student } from './student';
 import { Group } from './group';
 import { ServerAddress } from './Serveraddress';
 import { ResultComponent } from './result/result.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { ResultComponent } from './result/result.component';
     StatisticsComponent,
     AlertComponent,
     RawdataComponent,
-    ResultComponent
+    ResultComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
